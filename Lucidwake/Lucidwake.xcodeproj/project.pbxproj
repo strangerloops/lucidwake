@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
+		AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F3186BA9D400996297 /* CoreGraphics.framework */; };
+		AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
+		AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AADA01FA186BA9D400996297 /* InfoPlist.strings */; };
+		AADA01FE186BA9D400996297 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA01FD186BA9D400996297 /* main.m */; };
+		AADA0202186BA9D400996297 /* LWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA0201186BA9D400996297 /* LWAppDelegate.m */; };
+		AADA0204186BA9D400996297 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AADA0203186BA9D400996297 /* Images.xcassets */; };
+		AADA020B186BA9D400996297 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA020A186BA9D400996297 /* XCTest.framework */; };
+		AADA020C186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
+		AADA020D186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
+		AADA0215186BA9D400996297 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AADA0213186BA9D400996297 /* InfoPlist.strings */; };
+		AADA0217186BA9D400996297 /* LucidwakeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA0216186BA9D400996297 /* LucidwakeTests.m */; };
+		AADA0222186BACFB00996297 /* LWAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA0221186BACFB00996297 /* LWAlarmViewController.m */; };
+		AADA022B186BAD6300996297 /* LWRecordingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA022A186BAD6300996297 /* LWRecordingsViewController.m */; };
+		AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA022C186BAD7300996297 /* LWRecordingsViewController.xib */; };
+		AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA0287187138BB00996297 /* LWAlarmStore.m */; };
+		AADA028B1871391100996297 /* LWAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA028A1871391100996297 /* LWAlarm.m */; };
+		AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA028D18713CDB00996297 /* LWAddAlarmViewController.m */; };
+		AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA028F18713CF300996297 /* LWAddAlarmViewController.xib */; };
+		AADA02DA1872A8FD00996297 /* LWAddAlarmTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02D91872A8FD00996297 /* LWAddAlarmTableCell.m */; };
+		AADA02E01872B54800996297 /* LWAddAlarmTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AADA020E186BA9D400996297 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AADA01E6186BA9D300996297 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AADA01ED186BA9D400996297;
+			remoteInfo = Lucidwake;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AADA01EE186BA9D400996297 /* Lucidwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucidwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AADA01F1186BA9D400996297 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AADA01F3186BA9D400996297 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AADA01F5186BA9D400996297 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AADA01F9186BA9D400996297 /* Lucidwake-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lucidwake-Info.plist"; sourceTree = "<group>"; };
+		AADA01FB186BA9D400996297 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AADA01FD186BA9D400996297 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AADA01FF186BA9D400996297 /* Lucidwake-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lucidwake-Prefix.pch"; sourceTree = "<group>"; };
+		AADA0200186BA9D400996297 /* LWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWAppDelegate.h; sourceTree = "<group>"; };
+		AADA0201186BA9D400996297 /* LWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWAppDelegate.m; sourceTree = "<group>"; };
+		AADA0203186BA9D400996297 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AADA0209186BA9D400996297 /* LucidwakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LucidwakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AADA020A186BA9D400996297 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AADA0212186BA9D400996297 /* LucidwakeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LucidwakeTests-Info.plist"; sourceTree = "<group>"; };
+		AADA0214186BA9D400996297 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AADA0216186BA9D400996297 /* LucidwakeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LucidwakeTests.m; sourceTree = "<group>"; };
+		AADA0220186BACFB00996297 /* LWAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAlarmViewController.h; sourceTree = "<group>"; };
+		AADA0221186BACFB00996297 /* LWAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAlarmViewController.m; sourceTree = "<group>"; };
+		AADA0229186BAD6300996297 /* LWRecordingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRecordingsViewController.h; sourceTree = "<group>"; };
+		AADA022A186BAD6300996297 /* LWRecordingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRecordingsViewController.m; sourceTree = "<group>"; };
+		AADA022C186BAD7300996297 /* LWRecordingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRecordingsViewController.xib; sourceTree = "<group>"; };
+		AADA0286187138BB00996297 /* LWAlarmStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAlarmStore.h; sourceTree = "<group>"; };
+		AADA0287187138BB00996297 /* LWAlarmStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAlarmStore.m; sourceTree = "<group>"; };
+		AADA02891871391100996297 /* LWAlarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAlarm.h; sourceTree = "<group>"; };
+		AADA028A1871391100996297 /* LWAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAlarm.m; sourceTree = "<group>"; };
+		AADA028C18713CDB00996297 /* LWAddAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAddAlarmViewController.h; sourceTree = "<group>"; };
+		AADA028D18713CDB00996297 /* LWAddAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAddAlarmViewController.m; sourceTree = "<group>"; };
+		AADA028F18713CF300996297 /* LWAddAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAddAlarmViewController.xib; sourceTree = "<group>"; };
+		AADA02D81872A8FD00996297 /* LWAddAlarmTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAddAlarmTableCell.h; sourceTree = "<group>"; };
+		AADA02D91872A8FD00996297 /* LWAddAlarmTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAddAlarmTableCell.m; sourceTree = "<group>"; };
+		AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAddAlarmTableCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AADA01EB186BA9D400996297 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */,
+				AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */,
+				AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AADA0206186BA9D400996297 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA020B186BA9D400996297 /* XCTest.framework in Frameworks */,
+				AADA020D186BA9D400996297 /* UIKit.framework in Frameworks */,
+				AADA020C186BA9D400996297 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AADA01E5186BA9D300996297 = {
+			isa = PBXGroup;
+			children = (
+				AADA0225186BAD1C00996297 /* Alarm */,
+				AADA022E186BAD7C00996297 /* Recordings */,
+				AADA01F7186BA9D400996297 /* Lucidwake */,
+				AADA0210186BA9D400996297 /* LucidwakeTests */,
+				AADA01F0186BA9D400996297 /* Frameworks */,
+				AADA01EF186BA9D400996297 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AADA01EF186BA9D400996297 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AADA01EE186BA9D400996297 /* Lucidwake.app */,
+				AADA0209186BA9D400996297 /* LucidwakeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AADA01F0186BA9D400996297 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AADA01F1186BA9D400996297 /* Foundation.framework */,
+				AADA01F3186BA9D400996297 /* CoreGraphics.framework */,
+				AADA01F5186BA9D400996297 /* UIKit.framework */,
+				AADA020A186BA9D400996297 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AADA01F7186BA9D400996297 /* Lucidwake */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0200186BA9D400996297 /* LWAppDelegate.h */,
+				AADA0201186BA9D400996297 /* LWAppDelegate.m */,
+				AADA0203186BA9D400996297 /* Images.xcassets */,
+				AADA01F8186BA9D400996297 /* Supporting Files */,
+			);
+			path = Lucidwake;
+			sourceTree = "<group>";
+		};
+		AADA01F8186BA9D400996297 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AADA01F9186BA9D400996297 /* Lucidwake-Info.plist */,
+				AADA01FA186BA9D400996297 /* InfoPlist.strings */,
+				AADA01FD186BA9D400996297 /* main.m */,
+				AADA01FF186BA9D400996297 /* Lucidwake-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AADA0210186BA9D400996297 /* LucidwakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0216186BA9D400996297 /* LucidwakeTests.m */,
+				AADA0211186BA9D400996297 /* Supporting Files */,
+			);
+			path = LucidwakeTests;
+			sourceTree = "<group>";
+		};
+		AADA0211186BA9D400996297 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0212186BA9D400996297 /* LucidwakeTests-Info.plist */,
+				AADA0213186BA9D400996297 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AADA0225186BAD1C00996297 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0220186BACFB00996297 /* LWAlarmViewController.h */,
+				AADA0221186BACFB00996297 /* LWAlarmViewController.m */,
+				AADA0286187138BB00996297 /* LWAlarmStore.h */,
+				AADA0287187138BB00996297 /* LWAlarmStore.m */,
+				AADA02891871391100996297 /* LWAlarm.h */,
+				AADA028A1871391100996297 /* LWAlarm.m */,
+				AADA028C18713CDB00996297 /* LWAddAlarmViewController.h */,
+				AADA028D18713CDB00996297 /* LWAddAlarmViewController.m */,
+				AADA028F18713CF300996297 /* LWAddAlarmViewController.xib */,
+				AADA02D81872A8FD00996297 /* LWAddAlarmTableCell.h */,
+				AADA02D91872A8FD00996297 /* LWAddAlarmTableCell.m */,
+				AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		AADA022E186BAD7C00996297 /* Recordings */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0229186BAD6300996297 /* LWRecordingsViewController.h */,
+				AADA022A186BAD6300996297 /* LWRecordingsViewController.m */,
+				AADA022C186BAD7300996297 /* LWRecordingsViewController.xib */,
+			);
+			name = Recordings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AADA01ED186BA9D400996297 /* Lucidwake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AADA021A186BA9D400996297 /* Build configuration list for PBXNativeTarget "Lucidwake" */;
+			buildPhases = (
+				AADA01EA186BA9D400996297 /* Sources */,
+				AADA01EB186BA9D400996297 /* Frameworks */,
+				AADA01EC186BA9D400996297 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lucidwake;
+			productName = Lucidwake;
+			productReference = AADA01EE186BA9D400996297 /* Lucidwake.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AADA0208186BA9D400996297 /* LucidwakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AADA021D186BA9D400996297 /* Build configuration list for PBXNativeTarget "LucidwakeTests" */;
+			buildPhases = (
+				AADA0205186BA9D400996297 /* Sources */,
+				AADA0206186BA9D400996297 /* Frameworks */,
+				AADA0207186BA9D400996297 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AADA020F186BA9D400996297 /* PBXTargetDependency */,
+			);
+			name = LucidwakeTests;
+			productName = LucidwakeTests;
+			productReference = AADA0209186BA9D400996297 /* LucidwakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AADA01E6186BA9D300996297 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LW;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = strangerware;
+				TargetAttributes = {
+					AADA0208186BA9D400996297 = {
+						TestTargetID = AADA01ED186BA9D400996297;
+					};
+				};
+			};
+			buildConfigurationList = AADA01E9186BA9D300996297 /* Build configuration list for PBXProject "Lucidwake" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AADA01E5186BA9D300996297;
+			productRefGroup = AADA01EF186BA9D400996297 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AADA01ED186BA9D400996297 /* Lucidwake */,
+				AADA0208186BA9D400996297 /* LucidwakeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AADA01EC186BA9D400996297 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */,
+				AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */,
+				AADA02E01872B54800996297 /* LWAddAlarmTableCell.xib in Resources */,
+				AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */,
+				AADA0204186BA9D400996297 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AADA0207186BA9D400996297 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA0215186BA9D400996297 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AADA01EA186BA9D400996297 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA02DA1872A8FD00996297 /* LWAddAlarmTableCell.m in Sources */,
+				AADA028B1871391100996297 /* LWAlarm.m in Sources */,
+				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
+				AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */,
+				AADA01FE186BA9D400996297 /* main.m in Sources */,
+				AADA022B186BAD6300996297 /* LWRecordingsViewController.m in Sources */,
+				AADA0222186BACFB00996297 /* LWAlarmViewController.m in Sources */,
+				AADA0202186BA9D400996297 /* LWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AADA0205186BA9D400996297 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AADA0217186BA9D400996297 /* LucidwakeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AADA020F186BA9D400996297 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AADA01ED186BA9D400996297 /* Lucidwake */;
+			targetProxy = AADA020E186BA9D400996297 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AADA01FA186BA9D400996297 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AADA01FB186BA9D400996297 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AADA0213186BA9D400996297 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AADA0214186BA9D400996297 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AADA0218186BA9D400996297 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AADA0219186BA9D400996297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AADA021B186BA9D400996297 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lucidwake/Lucidwake-Prefix.pch";
+				INFOPLIST_FILE = "Lucidwake/Lucidwake-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AADA021C186BA9D400996297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lucidwake/Lucidwake-Prefix.pch";
+				INFOPLIST_FILE = "Lucidwake/Lucidwake-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AADA021E186BA9D400996297 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Lucidwake.app/Lucidwake";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lucidwake/Lucidwake-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LucidwakeTests/LucidwakeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AADA021F186BA9D400996297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Lucidwake.app/Lucidwake";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Lucidwake/Lucidwake-Prefix.pch";
+				INFOPLIST_FILE = "LucidwakeTests/LucidwakeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AADA01E9186BA9D300996297 /* Build configuration list for PBXProject "Lucidwake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AADA0218186BA9D400996297 /* Debug */,
+				AADA0219186BA9D400996297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AADA021A186BA9D400996297 /* Build configuration list for PBXNativeTarget "Lucidwake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AADA021B186BA9D400996297 /* Debug */,
+				AADA021C186BA9D400996297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AADA021D186BA9D400996297 /* Build configuration list for PBXNativeTarget "LucidwakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AADA021E186BA9D400996297 /* Debug */,
+				AADA021F186BA9D400996297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AADA01E6186BA9D300996297 /* Project object */;
+}
