@@ -11,11 +11,15 @@
 @interface LWAlarm : NSObject
 
 {
-    NSDate *time;
-    NSString *label;
-    BOOL state;
-    NSString *sound;
-    NSArray *repeat;
+
 }
+
+@property (nonatomic, strong) NSDate *time;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) BOOL state;
+@property (nonatomic, copy) NSString *sound;
+@property (nonatomic, strong) NSArray *repeat;
+
+- (NSString *)index;
 
 @end

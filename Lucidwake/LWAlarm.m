@@ -7,7 +7,13 @@
 //
 
 #import "LWAlarm.h"
+#import "LWAlarmStore.h"
 
 @implementation LWAlarm
+
+- (NSString *)index
+{
+    return [NSString stringWithFormat:@"%d", [[[LWAlarmStore sharedStore] allAlarms] indexOfObject:self]];
+}
 
 @end

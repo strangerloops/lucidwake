@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWAddAlarmViewController">
             <connections>
+                <outlet property="datePicker" destination="6Q8-0J-0ST" id="74G-Qr-LA4"/>
                 <outlet property="subwindow" destination="GU7-Et-IHs" id="JYW-st-xcz"/>
                 <outlet property="view" destination="1" id="tW8-Zn-067"/>
             </connections>

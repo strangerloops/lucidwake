@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LWAlarm.h"
+
+@class LWAlarm;
 
 @interface LWAlarmStore : NSObject
 
@@ -19,6 +20,8 @@
 - (NSArray *)allAlarms;
 - (LWAlarm *)createAlarm;
 - (void)removeAlarm:(LWAlarm *)p;
-
+- (void)sortChronologically;
+- (NSString *)archivePath;
+- (void)saveChanges;
 
 @end
