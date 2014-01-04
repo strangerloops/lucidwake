@@ -35,14 +35,15 @@
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"LWAlarmCell"];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self tableView] reloadData];
+}
+
 - (IBAction)addNewAlarm:(id)sender
 {
     LWAlarm *newAlarm = [[LWAlarm alloc] init];
     LWAddAlarmViewController *addController = [[LWAddAlarmViewController alloc] init]; // add 'for new' yes here
-    [addController setDismissBlock:^
-     {
-         [[self tableView] reloadData];
-     }];
     [addController setAlarm:newAlarm];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addController];
     [addController setController:navigationController];
@@ -73,6 +74,7 @@
     [dateFormatter setDateFormat:@"a"];
     [[cell ampmLabel] setText:[dateFormatter stringFromDate:[p time]]];
     [[cell nameLabel] setText:[p name]];
+    
     return cell;
 }
          

@@ -20,7 +20,6 @@
 @property (strong, nonatomic) LWAlarm *alarm;
 @property (strong, nonatomic) NSArray *items;
 @property (weak, nonatomic) IBOutlet UIView *subwindow;
-@property (nonatomic, copy) void (^dismissBlock) (void);
 @property (weak, nonatomic) UINavigationController *controller;
 
 @end

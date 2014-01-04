@@ -18,6 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ampmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *statusSwitch;
-
+@property (weak, nonatomic) UITableView *root;
 
 @end

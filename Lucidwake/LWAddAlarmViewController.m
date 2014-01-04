@@ -9,8 +9,23 @@
 #import "LWAddAlarmViewController.h"
 #import "LWAlarmStore.h"
 #import "LWAlarm.h"
-#import "LWAddAlarmTableCell.h"
 #import "LWSetLabelViewController.h"
+
+@interface LabelValueCell : UITableViewCell
+@end
+@implementation LabelValueCell
+
+- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+    if (self)
+    {
+        [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    return self;
+}
+
+@end
 
 @implementation LWAddAlarmViewController
 
@@ -36,8 +51,11 @@
     [[self subwindow] addSubview:[self table]];
     [[self table] setDelegate:self];
     [[self table] setDataSource:self];
-    UINib *nib = [UINib nibWithNibName:@"LWAddAlarmTableCell" bundle:Nil];
-    [[self table] registerNib:nib forCellReuseIdentifier:@"LWAddAlarmTableCell"];
+
+    //UINib *nib = [UINib nibWithNibName:@"LWAddAlarmTableCell" bundle:Nil];
+    //[[self table] registerNib:nib forCellReuseIdentifier:@"LWAddAlarmTableCell"];
+    
+    [[self table] registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LWAddAlarmTableCell"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -52,11 +70,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LWAddAlarmTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAddAlarmTableCell"];
+    LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAddAlarmTableCell"];
     NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
     NSArray *values = [NSArray arrayWithObjects:[alarm name], @"Temp", @"Temp", @"Temp", nil];
-    [[cell settingLabel] setText:[titles objectAtIndex:[indexPath row]]];
-    [[cell valueLabel] setText:[values objectAtIndex:[indexPath row]]];
+    [[cell textLabel] setText:[titles objectAtIndex:[indexPath row]]];
+    [[cell detailTextLabel] setText:[values objectAtIndex:[indexPath row]]];
     return cell;
 }
 
@@ -81,13 +99,14 @@
 {
     [alarm setTime:[[self datePicker] date]];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:[self dismissBlock]];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)cancel:(id)sender
 {
     [[LWAlarmStore sharedStore] removeAlarm:alarm];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:[self dismissBlock]];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 @end

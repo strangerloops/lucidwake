@@ -19,5 +19,6 @@
 @property (nonatomic) BOOL state;
 @property (nonatomic, copy) NSString *sound;
 @property (nonatomic, strong) NSArray *repeat;
+@property (nonatomic, strong) UILocalNotification *notification;
 
 @end
