@@ -14,7 +14,7 @@
 
 }
 
-
 @property (weak, nonatomic) IBOutlet UILabel *settingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end

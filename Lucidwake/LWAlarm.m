@@ -11,9 +11,11 @@
 
 @implementation LWAlarm
 
-- (NSString *)index
+- (id)init
 {
-    return [NSString stringWithFormat:@"%d", [[[LWAlarmStore sharedStore] allAlarms] indexOfObject:self]];
+    self = [super init];
+    [self setName:@"Alarm"];
+    return self;
 }
 
 @end

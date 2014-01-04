@@ -20,6 +20,4 @@
 @property (nonatomic, copy) NSString *sound;
 @property (nonatomic, strong) NSArray *repeat;
 
-- (NSString *)index;
-
 @end

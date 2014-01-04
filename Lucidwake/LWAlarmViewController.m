@@ -37,7 +37,7 @@
 
 - (IBAction)addNewAlarm:(id)sender
 {
-    LWAlarm *newAlarm = [[LWAlarmStore sharedStore] createAlarm];
+    LWAlarm *newAlarm = [[LWAlarm alloc] init];
     LWAddAlarmViewController *addController = [[LWAddAlarmViewController alloc] init]; // add 'for new' yes here
     [addController setDismissBlock:^
      {
@@ -45,6 +45,7 @@
      }];
     [addController setAlarm:newAlarm];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addController];
+    [addController setController:navigationController];
     [navigationController setModalPresentationStyle:UIModalPresentationFormSheet];
     [navigationController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:navigationController animated:YES completion:Nil];
@@ -71,6 +72,7 @@
     [[cell timeLabel] setText:[NSString stringWithFormat:@"%d : %d", hours, [components minute]]];
     [dateFormatter setDateFormat:@"a"];
     [[cell ampmLabel] setText:[dateFormatter stringFromDate:[p time]]];
+    [[cell nameLabel] setText:[p name]];
     return cell;
 }
          

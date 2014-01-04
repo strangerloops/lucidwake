@@ -18,9 +18,8 @@
 
 + (LWAlarmStore *)sharedStore;
 - (NSArray *)allAlarms;
-- (LWAlarm *)createAlarm;
+- (void)addAlarm:(LWAlarm *)p;
 - (void)removeAlarm:(LWAlarm *)p;
-- (void)sortChronologically;
 - (NSString *)archivePath;
 - (void)saveChanges;
 

@@ -9,8 +9,12 @@
 #import "LWAddAlarmViewController.h"
 #import "LWAlarmStore.h"
 #import "LWAlarm.h"
+#import "LWAddAlarmTableCell.h"
+#import "LWSetLabelViewController.h"
 
 @implementation LWAddAlarmViewController
+
+@synthesize alarm;
 
 - (id)init
 {
@@ -32,44 +36,57 @@
     [[self subwindow] addSubview:[self table]];
     [[self table] setDelegate:self];
     [[self table] setDataSource:self];
+    UINib *nib = [UINib nibWithNibName:@"LWAddAlarmTableCell" bundle:Nil];
+    [[self table] registerNib:nib forCellReuseIdentifier:@"LWAddAlarmTableCell"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[self alarm] setTime:[[self datePicker] date]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self table] reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == Nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    [[cell textLabel] setText:[[self items] objectAtIndex:[indexPath row]]];
+    LWAddAlarmTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAddAlarmTableCell"];
+    NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
+    NSArray *values = [NSArray arrayWithObjects:[alarm name], @"Temp", @"Temp", @"Temp", nil];
+    [[cell settingLabel] setText:[titles objectAtIndex:[indexPath row]]];
+    [[cell valueLabel] setText:[values objectAtIndex:[indexPath row]]];
     return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self items] count];
+    return 4;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath row] == 0)
+    {
+        LWSetLabelViewController *labelController = [[LWSetLabelViewController alloc] init];
+        [labelController setAlarm:alarm];
+        [[labelController labelTextField] setText:[alarm name]];
+        [labelController setController:[self controller]];
+        [[self controller] pushViewController:labelController animated:YES];
+    }
 }
 
 - (void)save:(id)sender
 {
+    [alarm setTime:[[self datePicker] date]];
+    [[LWAlarmStore sharedStore] addAlarm:alarm];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:[self dismissBlock]];
 }
 
 - (void)cancel:(id)sender
 {
-    [[LWAlarmStore sharedStore] removeAlarm:[self alarm]];
+    [[LWAlarmStore sharedStore] removeAlarm:alarm];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:[self dismissBlock]];
 }
 

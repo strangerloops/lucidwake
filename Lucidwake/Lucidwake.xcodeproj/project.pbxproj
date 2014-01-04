@@ -30,6 +30,8 @@
 		AADA02E01872B54800996297 /* LWAddAlarmTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */; };
 		AADA02E318761D7E00996297 /* LWAlarmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02E218761D7E00996297 /* LWAlarmCell.m */; };
 		AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02E418761E2900996297 /* LWAlarmCell.xib */; };
+		AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02E9187799DF00996297 /* LWSetLabelViewController.m */; };
+		AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,9 @@
 		AADA02E118761D7E00996297 /* LWAlarmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWAlarmCell.h; sourceTree = "<group>"; };
 		AADA02E218761D7E00996297 /* LWAlarmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWAlarmCell.m; sourceTree = "<group>"; };
 		AADA02E418761E2900996297 /* LWAlarmCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWAlarmCell.xib; sourceTree = "<group>"; };
+		AADA02E8187799DF00996297 /* LWSetLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetLabelViewController.h; sourceTree = "<group>"; };
+		AADA02E9187799DF00996297 /* LWSetLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetLabelViewController.m; sourceTree = "<group>"; };
+		AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetLabelViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +111,11 @@
 		AADA01E5186BA9D300996297 = {
 			isa = PBXGroup;
 			children = (
+				AADA01F7186BA9D400996297 /* Lucidwake */,
+				AADA02E61877995A00996297 /* Alarms view */,
+				AADA02E71877997900996297 /* AddAlarms view */,
 				AADA0225186BAD1C00996297 /* Alarm */,
 				AADA022E186BAD7C00996297 /* Recordings */,
-				AADA01F7186BA9D400996297 /* Lucidwake */,
 				AADA0210186BA9D400996297 /* LucidwakeTests */,
 				AADA01F0186BA9D400996297 /* Frameworks */,
 				AADA01EF186BA9D400996297 /* Products */,
@@ -178,21 +185,10 @@
 		AADA0225186BAD1C00996297 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				AADA0220186BACFB00996297 /* LWAlarmViewController.h */,
-				AADA0221186BACFB00996297 /* LWAlarmViewController.m */,
-				AADA02E118761D7E00996297 /* LWAlarmCell.h */,
-				AADA02E218761D7E00996297 /* LWAlarmCell.m */,
-				AADA02E418761E2900996297 /* LWAlarmCell.xib */,
 				AADA0286187138BB00996297 /* LWAlarmStore.h */,
 				AADA0287187138BB00996297 /* LWAlarmStore.m */,
 				AADA02891871391100996297 /* LWAlarm.h */,
 				AADA028A1871391100996297 /* LWAlarm.m */,
-				AADA028C18713CDB00996297 /* LWAddAlarmViewController.h */,
-				AADA028D18713CDB00996297 /* LWAddAlarmViewController.m */,
-				AADA028F18713CF300996297 /* LWAddAlarmViewController.xib */,
-				AADA02D81872A8FD00996297 /* LWAddAlarmTableCell.h */,
-				AADA02D91872A8FD00996297 /* LWAddAlarmTableCell.m */,
-				AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */,
 			);
 			name = Alarm;
 			sourceTree = "<group>";
@@ -205,6 +201,34 @@
 				AADA022C186BAD7300996297 /* LWRecordingsViewController.xib */,
 			);
 			name = Recordings;
+			sourceTree = "<group>";
+		};
+		AADA02E61877995A00996297 /* Alarms view */ = {
+			isa = PBXGroup;
+			children = (
+				AADA0220186BACFB00996297 /* LWAlarmViewController.h */,
+				AADA0221186BACFB00996297 /* LWAlarmViewController.m */,
+				AADA02E118761D7E00996297 /* LWAlarmCell.h */,
+				AADA02E218761D7E00996297 /* LWAlarmCell.m */,
+				AADA02E418761E2900996297 /* LWAlarmCell.xib */,
+			);
+			name = "Alarms view";
+			sourceTree = "<group>";
+		};
+		AADA02E71877997900996297 /* AddAlarms view */ = {
+			isa = PBXGroup;
+			children = (
+				AADA028C18713CDB00996297 /* LWAddAlarmViewController.h */,
+				AADA028D18713CDB00996297 /* LWAddAlarmViewController.m */,
+				AADA028F18713CF300996297 /* LWAddAlarmViewController.xib */,
+				AADA02D81872A8FD00996297 /* LWAddAlarmTableCell.h */,
+				AADA02D91872A8FD00996297 /* LWAddAlarmTableCell.m */,
+				AADA02DF1872B54800996297 /* LWAddAlarmTableCell.xib */,
+				AADA02E8187799DF00996297 /* LWSetLabelViewController.h */,
+				AADA02E9187799DF00996297 /* LWSetLabelViewController.m */,
+				AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */,
+			);
+			name = "AddAlarms view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */,
+				AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */,
 				AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */,
 				AADA02E01872B54800996297 /* LWAddAlarmTableCell.xib in Resources */,
 				AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */,
@@ -310,6 +335,7 @@
 				AADA02DA1872A8FD00996297 /* LWAddAlarmTableCell.m in Sources */,
 				AADA028B1871391100996297 /* LWAlarm.m in Sources */,
 				AADA02E318761D7E00996297 /* LWAlarmCell.m in Sources */,
+				AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */,
 				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
 				AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */,
 				AADA01FE186BA9D400996297 /* main.m in Sources */,

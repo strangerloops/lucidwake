@@ -47,11 +47,28 @@
     return allAlarms;
 }
 
-- (LWAlarm *)createAlarm
+- (void)addAlarm:(LWAlarm *)p
 {
-    LWAlarm *p = [[LWAlarm alloc] init];
-    [allAlarms addObject:p];
-    return p;
+    if ([allAlarms count] == 0)
+    {
+        [allAlarms addObject:p];
+    } else
+    {
+        BOOL added = false;
+        for (int i = 0; i < [allAlarms count]; i++)
+        {
+            if ([[p time] compare:[[allAlarms objectAtIndex:i] time]] == NSOrderedAscending)
+            {
+                [allAlarms insertObject:p atIndex:i];
+                added = true;
+                break;
+            }
+        }
+        if (!added)
+        {
+            [allAlarms addObject:p];
+        }
+    }
 }
 
 - (void)removeAlarm:(LWAlarm *)p
@@ -61,7 +78,6 @@
 
 - (void)sortChronologically
 {
-    // sort array...
 }
 
 - (NSString *)archivePath

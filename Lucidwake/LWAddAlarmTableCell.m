@@ -10,6 +10,4 @@
 
 @implementation LWAddAlarmTableCell
 
-
-
 @end
