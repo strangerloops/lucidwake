@@ -74,7 +74,7 @@
     [dateFormatter setDateFormat:@"a"];
     [[cell ampmLabel] setText:[dateFormatter stringFromDate:[p time]]];
     [[cell nameLabel] setText:[p name]];
-    
+    [cell setIndex:[indexPath row]];
     return cell;
 }
          

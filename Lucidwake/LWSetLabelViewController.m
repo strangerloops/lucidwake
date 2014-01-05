@@ -25,7 +25,6 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [[self alarm] setName:[[self labelTextField] text]];
-    NSLog(@"Named alarm %@", [[self alarm] name]);
 }
 
 @end

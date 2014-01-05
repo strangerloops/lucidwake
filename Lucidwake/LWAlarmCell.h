@@ -11,13 +11,12 @@
 @interface LWAlarmCell : UITableViewCell
 
 {
-    
+    IBOutlet UISwitch *statusSwitch;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ampmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *statusSwitch;
-@property (weak, nonatomic) UITableView *root;
+@property (assign) int index;
 
 @end

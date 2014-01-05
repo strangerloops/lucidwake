@@ -13,6 +13,7 @@
 
 @interface LabelValueCell : UITableViewCell
 @end
+
 @implementation LabelValueCell
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
