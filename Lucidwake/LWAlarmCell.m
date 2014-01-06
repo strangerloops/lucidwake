@@ -21,10 +21,10 @@
         [n setFireDate:[alarm time]];
         [n setAlertBody:[alarm name]];
         [[UIApplication sharedApplication] scheduleLocalNotification:n];
-        NSLog(@"Setting alarm for %@ at %@", [alarm name], [alarm time]);
         [alarm setNotification:n];
     } else
     {
+        [[UIApplication sharedApplication] cancelLocalNotification:[alarm notification]];
         [alarm setNotification:nil];
     }
 }

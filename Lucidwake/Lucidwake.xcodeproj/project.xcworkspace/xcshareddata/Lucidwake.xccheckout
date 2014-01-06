@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A6196C47-D27E-46A5-AC76-37A852AD8B9E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Lucidwake</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B0E79430-AD42-4A50-963C-8CBC0F935FF0</key>
+		<string>https://github.com/strangerloops/lucidwake.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Lucidwake/Lucidwake.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B0E79430-AD42-4A50-963C-8CBC0F935FF0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/strangerloops/lucidwake.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B0E79430-AD42-4A50-963C-8CBC0F935FF0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B0E79430-AD42-4A50-963C-8CBC0F935FF0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lucidwake</string>
+		</dict>
+	</array>
+</dict>
+</plist>

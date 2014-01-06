@@ -100,6 +100,11 @@
 {
     [alarm setTime:[[self datePicker] date]];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
+    UILocalNotification *n = [[UILocalNotification alloc] init];
+    [n setFireDate:[alarm time]];
+    [n setAlertBody:[alarm name]];
+    [[UIApplication sharedApplication] scheduleLocalNotification:n];
+    [alarm setNotification:n];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -76,9 +76,6 @@
     [allAlarms removeObjectIdenticalTo:p];
 }
 
-- (void)sortChronologically
-{
-}
 
 - (NSString *)archivePath
 {

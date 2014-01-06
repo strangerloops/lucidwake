@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA239AD41879EFC5005590D4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA239AD31879EFC5005590D4 /* AVFoundation.framework */; };
+		AA239AD71879F9BB005590D4 /* LWRecording.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AD61879F9BB005590D4 /* LWRecording.m */; };
+		AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AD91879FFC5005590D4 /* LWRecordingStore.m */; };
+		AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239ADC187A453F005590D4 /* LWRecordingCell.m */; };
+		AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA239ADE187A4583005590D4 /* LWRecordingCell.xib */; };
 		AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
 		AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F3186BA9D400996297 /* CoreGraphics.framework */; };
 		AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
@@ -43,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA239AD31879EFC5005590D4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA239AD51879F9BB005590D4 /* LWRecording.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRecording.h; sourceTree = "<group>"; };
+		AA239AD61879F9BB005590D4 /* LWRecording.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRecording.m; sourceTree = "<group>"; };
+		AA239AD81879FFC5005590D4 /* LWRecordingStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRecordingStore.h; sourceTree = "<group>"; };
+		AA239AD91879FFC5005590D4 /* LWRecordingStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRecordingStore.m; sourceTree = "<group>"; };
+		AA239ADB187A453F005590D4 /* LWRecordingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRecordingCell.h; sourceTree = "<group>"; };
+		AA239ADC187A453F005590D4 /* LWRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRecordingCell.m; sourceTree = "<group>"; };
+		AA239ADE187A4583005590D4 /* LWRecordingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRecordingCell.xib; sourceTree = "<group>"; };
 		AADA01EE186BA9D400996297 /* Lucidwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucidwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA01F1186BA9D400996297 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AADA01F3186BA9D400996297 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA239AD41879EFC5005590D4 /* AVFoundation.framework in Frameworks */,
 				AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */,
 				AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */,
 				AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */,
@@ -129,6 +143,7 @@
 		AADA01F0186BA9D400996297 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA239AD31879EFC5005590D4 /* AVFoundation.framework */,
 				AADA01F1186BA9D400996297 /* Foundation.framework */,
 				AADA01F3186BA9D400996297 /* CoreGraphics.framework */,
 				AADA01F5186BA9D400996297 /* UIKit.framework */,
@@ -194,6 +209,13 @@
 				AADA0229186BAD6300996297 /* LWRecordingsViewController.h */,
 				AADA022A186BAD6300996297 /* LWRecordingsViewController.m */,
 				AADA022C186BAD7300996297 /* LWRecordingsViewController.xib */,
+				AA239AD51879F9BB005590D4 /* LWRecording.h */,
+				AA239AD61879F9BB005590D4 /* LWRecording.m */,
+				AA239AD81879FFC5005590D4 /* LWRecordingStore.h */,
+				AA239AD91879FFC5005590D4 /* LWRecordingStore.m */,
+				AA239ADB187A453F005590D4 /* LWRecordingCell.h */,
+				AA239ADC187A453F005590D4 /* LWRecordingCell.m */,
+				AA239ADE187A4583005590D4 /* LWRecordingCell.xib */,
 			);
 			name = Recordings;
 			sourceTree = "<group>";
@@ -300,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */,
+				AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */,
 				AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */,
 				AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */,
 				AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */,
@@ -325,8 +348,11 @@
 			files = (
 				AADA028B1871391100996297 /* LWAlarm.m in Sources */,
 				AADA02E318761D7E00996297 /* LWAlarmCell.m in Sources */,
+				AA239AD71879F9BB005590D4 /* LWRecording.m in Sources */,
 				AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */,
+				AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */,
 				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
+				AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */,
 				AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */,
 				AADA01FE186BA9D400996297 /* main.m in Sources */,
 				AADA022B186BAD6300996297 /* LWRecordingsViewController.m in Sources */,
