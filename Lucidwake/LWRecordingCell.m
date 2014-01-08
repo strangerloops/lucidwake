@@ -14,15 +14,18 @@
 
 - (void)playRecording:(id)sender
 {
-    if (![player isPlaying])
+    if (![_player isPlaying])
     {
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[[[LWRecordingStore sharedStore] allRecordings] objectAtIndex:_index] URLlocation] error:nil];
-        [player setDelegate:self];
-        [player play];
+        [_player setDelegate:self];
+        [_player play];
+        [audioButton setTitle:@"Pause" forState:UIControlStateNormal];
     } else
     {
-        [player pause];
+        [_player pause];
+        [audioButton setTitle:@"Play" forState:UIControlStateNormal];
     }
+    
+    NSLog(@"%f", [_player duration]);
 }
 
 @end

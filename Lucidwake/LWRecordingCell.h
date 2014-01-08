@@ -12,7 +12,6 @@
 @interface LWRecordingCell : UITableViewCell <AVAudioPlayerDelegate>
 
 {
-    AVAudioPlayer *player;
     IBOutlet UIButton *audioButton;
 }
 
@@ -20,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (assign, nonatomic) int index;
+@property (strong, nonatomic) AVAudioPlayer *player;
 
 - (IBAction)playRecording:(id)sender;
 

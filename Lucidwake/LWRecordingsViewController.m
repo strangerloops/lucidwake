@@ -20,12 +20,14 @@
     {
         UITabBarItem *tbi = [self tabBarItem];
         [tbi setTitle:@"Recordings"];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"notification" object:nil];
+
     }
     return self;
 }
 
 - (void)viewDidLoad
-{
+{    
     [super viewDidLoad];
     [_doneButton setHidden:YES];
     [_doneButton setEnabled:NO];
@@ -37,6 +39,21 @@
     [_subwindow addSubview:_table];
     UINib *nib = [UINib nibWithNibName:@"LWRecordingCell" bundle:Nil];
     [_table registerNib:nib forCellReuseIdentifier:@"LWRecordingCell"];
+}
+
+- (void)receivedNotification:(NSNotification *)notification
+{
+    NSLog(@"The method that sets the boolean was called....");
+    [self setOpenedFromAlarm:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (_openedFromAlarm)
+    {
+        [_recordButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+        [self setOpenedFromAlarm:NO];
+    }
 }
 
 - (IBAction)recordPauseTapped:(id)sender
@@ -126,6 +143,7 @@
 {
     LWRecording *r = [[[LWRecordingStore sharedStore] allRecordings] objectAtIndex:[indexPath row]];
     LWRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWRecordingCell"];
+    [cell setPlayer:[[AVAudioPlayer alloc] initWithContentsOfURL:[r URLlocation] error:Nil]];
     [cell setIndex:[indexPath row]];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM-dd-yy"];

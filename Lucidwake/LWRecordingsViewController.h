@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *subwindow;
 @property (strong, nonatomic) LWRecording *recording;
 @property (assign, nonatomic) BOOL recordingInProgress;
+@property (assign, nonatomic) BOOL openedFromAlarm;
 
 - (IBAction)recordPauseTapped:(id)sender;
 - (IBAction)doneTapped:(id)sender;
