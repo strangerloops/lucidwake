@@ -66,13 +66,13 @@
 {
     LWAlarm *p = [[[LWAlarmStore sharedStore] allAlarms] objectAtIndex:[indexPath row]];
     LWAlarmCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAlarmCell"];
-    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit;
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:unitFlags fromDate:[p time]];
-    int hours = [components hour] % 12;
+    
+    NSDate *displayDate = [[NSCalendar currentCalendar] dateFromComponents:[p hourMinutes]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [[cell timeLabel] setText:[NSString stringWithFormat:@"%d : %d", hours, [components minute]]];
+    [dateFormatter setDateFormat:@"hh:mm"];
+    [[cell timeLabel] setText:[dateFormatter stringFromDate:displayDate]];
     [dateFormatter setDateFormat:@"a"];
-    [[cell ampmLabel] setText:[dateFormatter stringFromDate:[p time]]];
+    [[cell ampmLabel] setText:[dateFormatter stringFromDate:displayDate]];
     [[cell nameLabel] setText:[p name]];
     [cell setIndex:[indexPath row]];
     if (![p stale])

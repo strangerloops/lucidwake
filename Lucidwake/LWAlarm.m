@@ -20,6 +20,8 @@
     {
         [_weekly addObject:[NSNumber numberWithInt:0]];
     }
+    [self setNotificationsArray:[[NSMutableArray alloc] init]];
+    [self setRetriggersArray:[[NSMutableArray alloc] init]];
     return self;
 }
 

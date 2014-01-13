@@ -16,7 +16,6 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *sound;
-@property (nonatomic, strong) NSDate *time;
 @property (nonatomic, strong) NSDateComponents *hourMinutes;
 @property (nonatomic, strong) NSMutableArray *weekly;
 @property (nonatomic, strong) NSMutableArray *notificationsArray;

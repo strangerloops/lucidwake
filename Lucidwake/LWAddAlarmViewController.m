@@ -60,7 +60,6 @@
 
 - (void)updateTime
 {
-//    [alarm setTime:[[self datePicker] date]];
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDateComponents *components = [cal components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:[_datePicker date]];
     [alarm setHourMinutes:components];
@@ -110,11 +109,6 @@
 
 - (void)save:(id)sender
 {
-    if ([[[self datePicker] date] compare:[NSDate date]] == NSOrderedDescending)
-    {
-        // logic
-    }
-    [alarm setTime:[[self datePicker] date]];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }

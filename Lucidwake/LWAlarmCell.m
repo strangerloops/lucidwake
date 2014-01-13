@@ -20,50 +20,67 @@
     if ([statusSwitch isOn])
     {
         BOOL scheduled = false;
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        
+        NSDate *thisInstant = [NSDate date];
+        NSDateComponents *thisInstantComponents = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:thisInstant];
+        [thisInstantComponents setHour:[[alarm hourMinutes] hour]];
+        [thisInstantComponents setMinute:[[alarm hourMinutes] minute]];
+        NSDate *scheduledDate = [cal dateFromComponents:thisInstantComponents];
+        
+        // if scheduled date is earlier than this instant, add a day to scheduled date
+        if ([scheduledDate compare:thisInstant] == NSOrderedAscending)
+        {
+            [thisInstantComponents setDay:[thisInstantComponents day] + 1];
+            scheduledDate = [cal dateFromComponents:thisInstantComponents];
+        }
         
         for (int i = 0; i < [[alarm weekly] count]; i++)
         {
             NSNumber *n = [[alarm weekly] objectAtIndex:i];
             if ([n intValue] == 1)
             {
-                NSDate *today = [NSDate date];
-                NSDateComponents *weekdayComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:today];
-                NSInteger todayWeekday = [weekdayComponents weekday];
                 
-                NSInteger dayDifference = (i + 1) - todayWeekday;
+                NSDateComponents *weekdayComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:scheduledDate];
+                NSInteger scheduledWeekday = [weekdayComponents weekday];
+                
+                NSInteger dayDifference = (i + 1) - scheduledWeekday;
                 if (dayDifference < 1)
                 {
                     dayDifference += 7;
                 }
                 NSDateComponents *repeatComponent = [[NSDateComponents alloc] init];
                 [repeatComponent setDay:dayDifference];
-                NSDate *repeatDate = [[NSCalendar currentCalendar] dateByAddingComponents:repeatComponent toDate:today options:0];
+                NSDate *repeatDate = [[NSCalendar currentCalendar] dateByAddingComponents:repeatComponent toDate:scheduledDate options:0];
                 UILocalNotification *l = [[UILocalNotification alloc] init];
                 [l setFireDate:repeatDate];
                 [l setAlertBody:[alarm name]];
                 [l setRepeatInterval:NSWeekCalendarUnit];
                 [[alarm notificationsArray] addObject:l];
                 [[UIApplication sharedApplication] scheduleLocalNotification:l];
-                NSLog(@"%@", repeatDate);
                 scheduled = true;
             }
         }
         if (!scheduled)
         {
             UILocalNotification *l = [[UILocalNotification alloc] init];
-            [l setFireDate:[alarm time]];
+            [l setFireDate:scheduledDate];
             [l setAlertBody:[alarm name]];
             [[alarm notificationsArray] addObject:l];
             [[UIApplication sharedApplication] scheduleLocalNotification:l];
         }
-        for (UILocalNotification *u in [alarm notificationsArray])
+        NSLog(@"%d", [[alarm notificationsArray] count]);
+        for (int i = 0; i < [[alarm notificationsArray] count]; i++)
         {
+            NSLog(@"Entering retrigger loop...");
+            UILocalNotification *u = [[alarm notificationsArray] objectAtIndex:i];
             if ([alarm retriggers] > 0)
             {
                 for (int i = 0; i < [alarm retriggers]; i++)
                 {
                     NSDateComponents *retriggerComponent = [[NSDateComponents alloc] init];
                     [retriggerComponent setMinute:([alarm retriggerInterval] * (i + 1))];
+                    NSLog(@"%d", [retriggerComponent minute]);
                     NSDate *retriggerDate = [[NSCalendar currentCalendar] dateByAddingComponents:retriggerComponent toDate:[u fireDate] options:0];
                     UILocalNotification *r = [[UILocalNotification alloc] init];
                     [r setFireDate:retriggerDate];

@@ -57,7 +57,8 @@
         BOOL added = false;
         for (int i = 0; i < [allAlarms count]; i++)
         {
-            if ([[p time] compare:[[allAlarms objectAtIndex:i] time]] == NSOrderedAscending)
+            LWAlarm *q = [allAlarms objectAtIndex:i];
+            if ([[p hourMinutes] hour] * 60 + [[p hourMinutes] minute] < [[q hourMinutes] hour] * 60 + [[q hourMinutes] minute])
             {
                 [allAlarms insertObject:p atIndex:i];
                 added = true;
