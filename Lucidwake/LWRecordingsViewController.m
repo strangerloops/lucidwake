@@ -43,7 +43,6 @@
 
 - (void)receivedNotification:(NSNotification *)notification
 {
-    NSLog(@"The method that sets the boolean was called....");
     [self setOpenedFromAlarm:YES];
 }
 

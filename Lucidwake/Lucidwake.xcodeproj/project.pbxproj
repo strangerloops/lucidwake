@@ -12,6 +12,9 @@
 		AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AD91879FFC5005590D4 /* LWRecordingStore.m */; };
 		AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239ADC187A453F005590D4 /* LWRecordingCell.m */; };
 		AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA239ADE187A4583005590D4 /* LWRecordingCell.xib */; };
+		AA239AE2187E212D005590D4 /* LWSetWeeklyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AE1187E212D005590D4 /* LWSetWeeklyViewController.m */; };
+		AA239AE718810A58005590D4 /* LWSetRetriggerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */; };
+		AA239AE918811B5A005590D4 /* LWSetRetriggerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */; };
 		AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
 		AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F3186BA9D400996297 /* CoreGraphics.framework */; };
 		AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
@@ -56,6 +59,11 @@
 		AA239ADB187A453F005590D4 /* LWRecordingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWRecordingCell.h; sourceTree = "<group>"; };
 		AA239ADC187A453F005590D4 /* LWRecordingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWRecordingCell.m; sourceTree = "<group>"; };
 		AA239ADE187A4583005590D4 /* LWRecordingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWRecordingCell.xib; sourceTree = "<group>"; };
+		AA239AE0187E212D005590D4 /* LWSetWeeklyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetWeeklyViewController.h; sourceTree = "<group>"; };
+		AA239AE1187E212D005590D4 /* LWSetWeeklyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetWeeklyViewController.m; sourceTree = "<group>"; };
+		AA239AE518810A58005590D4 /* LWSetRetriggerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetRetriggerViewController.h; sourceTree = "<group>"; };
+		AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetRetriggerViewController.m; sourceTree = "<group>"; };
+		AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetRetriggerViewController.xib; sourceTree = "<group>"; };
 		AADA01EE186BA9D400996297 /* Lucidwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucidwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA01F1186BA9D400996297 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AADA01F3186BA9D400996297 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +249,11 @@
 				AADA02E8187799DF00996297 /* LWSetLabelViewController.h */,
 				AADA02E9187799DF00996297 /* LWSetLabelViewController.m */,
 				AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */,
+				AA239AE0187E212D005590D4 /* LWSetWeeklyViewController.h */,
+				AA239AE1187E212D005590D4 /* LWSetWeeklyViewController.m */,
+				AA239AE518810A58005590D4 /* LWSetRetriggerViewController.h */,
+				AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */,
+				AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */,
 			);
 			name = "AddAlarms view";
 			sourceTree = "<group>";
@@ -325,6 +338,7 @@
 				AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */,
 				AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */,
 				AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */,
+				AA239AE918811B5A005590D4 /* LWSetRetriggerViewController.xib in Resources */,
 				AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */,
 				AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */,
 				AADA0204186BA9D400996297 /* Images.xcassets in Resources */,
@@ -354,8 +368,10 @@
 				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
 				AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */,
 				AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */,
+				AA239AE718810A58005590D4 /* LWSetRetriggerViewController.m in Sources */,
 				AADA01FE186BA9D400996297 /* main.m in Sources */,
 				AADA022B186BAD6300996297 /* LWRecordingsViewController.m in Sources */,
+				AA239AE2187E212D005590D4 /* LWSetWeeklyViewController.m in Sources */,
 				AADA0222186BACFB00996297 /* LWAlarmViewController.m in Sources */,
 				AADA0202186BA9D400996297 /* LWAppDelegate.m in Sources */,
 			);

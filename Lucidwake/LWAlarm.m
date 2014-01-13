@@ -15,6 +15,11 @@
 {
     self = [super init];
     [self setName:@"Alarm"];
+    [self setWeekly:[[NSMutableArray alloc] init]];
+    for (int i = 0; i < 7; i++)
+    {
+        [_weekly addObject:[NSNumber numberWithInt:0]];
+    }
     return self;
 }
 

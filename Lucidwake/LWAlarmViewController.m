@@ -75,6 +75,11 @@
     [[cell ampmLabel] setText:[dateFormatter stringFromDate:[p time]]];
     [[cell nameLabel] setText:[p name]];
     [cell setIndex:[indexPath row]];
+    if (![p stale])
+    {
+        [p setStale:YES];
+        [[cell statusSwitch] sendActionsForControlEvents:UIControlEventValueChanged];
+    }
     return cell;
 }
          

@@ -24,8 +24,6 @@
         [_player pause];
         [audioButton setTitle:@"Play" forState:UIControlStateNormal];
     }
-    
-    NSLog(@"%f", [_player duration]);
 }
 
 @end

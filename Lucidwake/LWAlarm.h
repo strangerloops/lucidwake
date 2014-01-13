@@ -14,11 +14,15 @@
 
 }
 
-@property (nonatomic, strong) NSDate *time;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic) BOOL state;
 @property (nonatomic, copy) NSString *sound;
-@property (nonatomic, strong) NSArray *repeat;
-@property (nonatomic, strong) UILocalNotification *notification;
+@property (nonatomic, strong) NSDate *time;
+@property (nonatomic, strong) NSDateComponents *hourMinutes;
+@property (nonatomic, strong) NSMutableArray *weekly;
+@property (nonatomic, strong) NSMutableArray *notificationsArray;
+@property (nonatomic, strong) NSMutableArray *retriggersArray;
+@property (nonatomic, assign) int retriggerInterval;
+@property (nonatomic, assign) int retriggers;
+@property (nonatomic, assign) BOOL stale;
 
 @end

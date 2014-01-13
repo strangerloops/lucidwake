@@ -10,6 +10,8 @@
 #import "LWAlarmStore.h"
 #import "LWAlarm.h"
 #import "LWSetLabelViewController.h"
+#import "LWSetWeeklyViewController.h"
+#import "LWSetRetriggerViewController.h"
 
 @interface LabelValueCell : UITableViewCell
 @end
@@ -18,7 +20,7 @@
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"LabelValueCell"];
     if (self)
     {
         [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -52,16 +54,16 @@
     [[self subwindow] addSubview:[self table]];
     [[self table] setDelegate:self];
     [[self table] setDataSource:self];
-
-    //UINib *nib = [UINib nibWithNibName:@"LWAddAlarmTableCell" bundle:Nil];
-    //[[self table] registerNib:nib forCellReuseIdentifier:@"LWAddAlarmTableCell"];
-    
-    [[self table] registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LWAddAlarmTableCell"];
+    [[self table] registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LabelValueCell"];
+    [_datePicker addTarget:self action:@selector(updateTime) forControlEvents:UIControlEventValueChanged];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)updateTime
 {
-    [super viewWillDisappear:animated];
+//    [alarm setTime:[[self datePicker] date]];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:[_datePicker date]];
+    [alarm setHourMinutes:components];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,7 +73,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWAddAlarmTableCell"];
+    LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LabelValueCell"];
     NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
     NSArray *values = [NSArray arrayWithObjects:[alarm name], @"Temp", @"Temp", @"Temp", nil];
     [[cell textLabel] setText:[titles objectAtIndex:[indexPath row]]];
@@ -93,18 +95,27 @@
         [[labelController labelTextField] setText:[alarm name]];
         [labelController setController:[self controller]];
         [[self controller] pushViewController:labelController animated:YES];
+    } else if ([indexPath row] == 2)
+    {
+        LWSetWeeklyViewController *weeklyController = [[LWSetWeeklyViewController alloc] init];
+        [weeklyController setAlarm:alarm];
+        [[self controller] pushViewController:weeklyController animated:YES];
+    } else if ([indexPath row] == 3)
+    {
+        LWSetRetriggerViewController *retriggerController = [[LWSetRetriggerViewController alloc] init];
+        [retriggerController setAlarm:alarm];
+        [[self controller] pushViewController:retriggerController animated:YES];
     }
 }
 
 - (void)save:(id)sender
 {
+    if ([[[self datePicker] date] compare:[NSDate date]] == NSOrderedDescending)
+    {
+        // logic
+    }
     [alarm setTime:[[self datePicker] date]];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
-    UILocalNotification *n = [[UILocalNotification alloc] init];
-    [n setFireDate:[alarm time]];
-    [n setAlertBody:[alarm name]];
-    [[UIApplication sharedApplication] scheduleLocalNotification:n];
-    [alarm setNotification:n];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 

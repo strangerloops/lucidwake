@@ -18,8 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) LWAlarm *alarm;
 @property (strong, nonatomic) NSArray *items;
-@property (weak, nonatomic) UITableView *table;
-@property (weak, nonatomic) IBOutlet UIView *subwindow;
-@property (weak, nonatomic) UINavigationController *controller;
+@property (strong, nonatomic) UITableView *table;
+@property (strong, nonatomic) IBOutlet UIView *subwindow;
+@property (strong, nonatomic) UINavigationController *controller;
 
 @end
