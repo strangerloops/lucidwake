@@ -69,10 +69,8 @@
             [[alarm notificationsArray] addObject:l];
             [[UIApplication sharedApplication] scheduleLocalNotification:l];
         }
-        NSLog(@"%d", [[alarm notificationsArray] count]);
         for (int i = 0; i < [[alarm notificationsArray] count]; i++)
         {
-            NSLog(@"Entering retrigger loop...");
             UILocalNotification *u = [[alarm notificationsArray] objectAtIndex:i];
             if ([alarm retriggers] > 0)
             {
@@ -80,11 +78,9 @@
                 {
                     NSDateComponents *retriggerComponent = [[NSDateComponents alloc] init];
                     [retriggerComponent setMinute:([alarm retriggerInterval] * (i + 1))];
-                    NSLog(@"%d", [retriggerComponent minute]);
                     NSDate *retriggerDate = [[NSCalendar currentCalendar] dateByAddingComponents:retriggerComponent toDate:[u fireDate] options:0];
                     UILocalNotification *r = [[UILocalNotification alloc] init];
                     [r setFireDate:retriggerDate];
-                    NSLog(@"%@", retriggerDate);
                     [r setAlertBody:[u alertBody]];
                     [[alarm retriggersArray] addObject:r];
                     [[UIApplication sharedApplication] scheduleLocalNotification:r];
@@ -103,6 +99,20 @@
             [[UIApplication sharedApplication] cancelLocalNotification:n];
             [[alarm retriggersArray] removeObjectIdenticalTo:n];
         }
+    }
+}
+
+- (void)willTransitionToState:(UITableViewCellStateMask)state
+{
+    [super willTransitionToState:state];
+    if (state == UITableViewCellStateEditingMask)
+    {
+        [statusSwitch setHidden:YES];
+        [self setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    if (state == UITableViewCellStateDefaultMask)
+    {
+        [statusSwitch setHidden:NO];
     }
 }
 

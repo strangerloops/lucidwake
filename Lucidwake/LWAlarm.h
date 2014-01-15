@@ -24,4 +24,6 @@
 @property (nonatomic, assign) int retriggers;
 @property (nonatomic, assign) BOOL stale;
 
+- (LWAlarm *)clone;
+
 @end

@@ -34,7 +34,7 @@
 
 @synthesize alarm;
 
-- (id)init
+- (id)initForNewAlarm:(BOOL)isNew
 {
     self = [super init];
     if(self)
@@ -43,6 +43,10 @@
         [[self navigationItem] setRightBarButtonItem:doneItem];
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
         [[self navigationItem] setLeftBarButtonItem:cancelItem];
+    }
+    if (!isNew)
+    {
+        [_deleteButton setHidden:false];
     }
     return self;
 }
@@ -56,6 +60,7 @@
     [[self table] setDataSource:self];
     [[self table] registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LabelValueCell"];
     [_datePicker addTarget:self action:@selector(updateTime) forControlEvents:UIControlEventValueChanged];
+    [self updateTime];
 }
 
 - (void)updateTime
@@ -109,15 +114,26 @@
 
 - (void)save:(id)sender
 {
+    [[LWAlarmStore sharedStore] removeAlarm:alarm];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)cancel:(id)sender
 {
-    [[LWAlarmStore sharedStore] removeAlarm:alarm];
+    if (_alarmBackup)
+    {
+        [[LWAlarmStore sharedStore] removeAlarm:alarm];
+        [[LWAlarmStore sharedStore] addAlarm:_alarmBackup];
+    }
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)deleteAlarm:(id)sender
+{
+    [[LWAlarmStore sharedStore] removeAlarm:alarm];
+    alarm = nil;
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
