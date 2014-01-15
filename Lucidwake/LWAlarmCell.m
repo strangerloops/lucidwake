@@ -25,6 +25,7 @@
     {
         BOOL scheduled = false;
         NSCalendar *cal = [NSCalendar currentCalendar];
+        NSString *soundString = [[alarm sound] stringByAppendingString:@".m4r"];
         
         NSDate *thisInstant = [NSDate date];
         NSDateComponents *thisInstantComponents = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:thisInstant];
@@ -60,6 +61,7 @@
                 [l setFireDate:repeatDate];
                 [l setAlertBody:[alarm name]];
                 [l setRepeatInterval:NSWeekCalendarUnit];
+                [l setSoundName:soundString];
                 [[alarm notificationsArray] addObject:l];
                 [[UIApplication sharedApplication] scheduleLocalNotification:l];
                 scheduled = true;
@@ -70,6 +72,7 @@
             UILocalNotification *l = [[UILocalNotification alloc] init];
             [l setFireDate:scheduledDate];
             [l setAlertBody:[alarm name]];
+            [l setSoundName:soundString];
             [[alarm notificationsArray] addObject:l];
             [[UIApplication sharedApplication] scheduleLocalNotification:l];
         }
@@ -86,6 +89,7 @@
                     UILocalNotification *r = [[UILocalNotification alloc] init];
                     [r setFireDate:retriggerDate];
                     [r setAlertBody:[u alertBody]];
+                    [r setSoundName:soundString];
                     [[alarm retriggersArray] addObject:r];
                     [[UIApplication sharedApplication] scheduleLocalNotification:r];
                 }

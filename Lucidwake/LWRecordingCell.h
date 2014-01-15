@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (assign, nonatomic) int index;
 @property (strong, nonatomic) AVAudioPlayer *player;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
 
 - (IBAction)playRecording:(id)sender;
 

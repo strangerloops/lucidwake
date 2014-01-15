@@ -15,6 +15,34 @@
 		AA239AE2187E212D005590D4 /* LWSetWeeklyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AE1187E212D005590D4 /* LWSetWeeklyViewController.m */; };
 		AA239AE718810A58005590D4 /* LWSetRetriggerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */; };
 		AA239AE918811B5A005590D4 /* LWSetRetriggerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */; };
+		AA239B06188635D6005590D4 /* Apex.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AEB188635D6005590D4 /* Apex.m4r */; };
+		AA239B07188635D6005590D4 /* Beacon.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AEC188635D6005590D4 /* Beacon.m4r */; };
+		AA239B08188635D6005590D4 /* Bulletin.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AED188635D6005590D4 /* Bulletin.m4r */; };
+		AA239B09188635D6005590D4 /* By The Seaside.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AEE188635D6005590D4 /* By The Seaside.m4r */; };
+		AA239B0A188635D6005590D4 /* Chimes.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AEF188635D6005590D4 /* Chimes.m4r */; };
+		AA239B0B188635D6005590D4 /* Circuit.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF0188635D6005590D4 /* Circuit.m4r */; };
+		AA239B0C188635D6005590D4 /* Constellation.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF1188635D6005590D4 /* Constellation.m4r */; };
+		AA239B0D188635D6005590D4 /* Cosmic.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF2188635D6005590D4 /* Cosmic.m4r */; };
+		AA239B0E188635D6005590D4 /* Crystals.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF3188635D6005590D4 /* Crystals.m4r */; };
+		AA239B0F188635D6005590D4 /* Hillside.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF4188635D6005590D4 /* Hillside.m4r */; };
+		AA239B10188635D6005590D4 /* Illuminate.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF5188635D6005590D4 /* Illuminate.m4r */; };
+		AA239B11188635D6005590D4 /* Night Owl.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF6188635D6005590D4 /* Night Owl.m4r */; };
+		AA239B12188635D6005590D4 /* Opening.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF7188635D6005590D4 /* Opening.m4r */; };
+		AA239B13188635D6005590D4 /* Playtime.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF8188635D6005590D4 /* Playtime.m4r */; };
+		AA239B14188635D6005590D4 /* Presto.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AF9188635D6005590D4 /* Presto.m4r */; };
+		AA239B15188635D6005590D4 /* Radar.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFA188635D6005590D4 /* Radar.m4r */; };
+		AA239B16188635D6005590D4 /* Radiate.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFB188635D6005590D4 /* Radiate.m4r */; };
+		AA239B17188635D6005590D4 /* Ripples.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFC188635D6005590D4 /* Ripples.m4r */; };
+		AA239B18188635D6005590D4 /* Sencha.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFD188635D6005590D4 /* Sencha.m4r */; };
+		AA239B19188635D6005590D4 /* Signal.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFE188635D6005590D4 /* Signal.m4r */; };
+		AA239B1A188635D6005590D4 /* Silk.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239AFF188635D6005590D4 /* Silk.m4r */; };
+		AA239B1B188635D6005590D4 /* Slow Rise.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B00188635D6005590D4 /* Slow Rise.m4r */; };
+		AA239B1C188635D6005590D4 /* Stargaze.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B01188635D6005590D4 /* Stargaze.m4r */; };
+		AA239B1D188635D6005590D4 /* Summit.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B02188635D6005590D4 /* Summit.m4r */; };
+		AA239B1E188635D6005590D4 /* Twinkle.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B03188635D6005590D4 /* Twinkle.m4r */; };
+		AA239B1F188635D6005590D4 /* Uplift.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B04188635D6005590D4 /* Uplift.m4r */; };
+		AA239B20188635D6005590D4 /* Waves.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B05188635D6005590D4 /* Waves.m4r */; };
+		AA239B2618863741005590D4 /* LWSetSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239B2518863741005590D4 /* LWSetSoundViewController.m */; };
 		AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
 		AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F3186BA9D400996297 /* CoreGraphics.framework */; };
 		AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
@@ -64,6 +92,35 @@
 		AA239AE518810A58005590D4 /* LWSetRetriggerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetRetriggerViewController.h; sourceTree = "<group>"; };
 		AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetRetriggerViewController.m; sourceTree = "<group>"; };
 		AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetRetriggerViewController.xib; sourceTree = "<group>"; };
+		AA239AEB188635D6005590D4 /* Apex.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Apex.m4r; sourceTree = "<group>"; };
+		AA239AEC188635D6005590D4 /* Beacon.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beacon.m4r; sourceTree = "<group>"; };
+		AA239AED188635D6005590D4 /* Bulletin.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bulletin.m4r; sourceTree = "<group>"; };
+		AA239AEE188635D6005590D4 /* By The Seaside.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "By The Seaside.m4r"; sourceTree = "<group>"; };
+		AA239AEF188635D6005590D4 /* Chimes.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chimes.m4r; sourceTree = "<group>"; };
+		AA239AF0188635D6005590D4 /* Circuit.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Circuit.m4r; sourceTree = "<group>"; };
+		AA239AF1188635D6005590D4 /* Constellation.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Constellation.m4r; sourceTree = "<group>"; };
+		AA239AF2188635D6005590D4 /* Cosmic.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cosmic.m4r; sourceTree = "<group>"; };
+		AA239AF3188635D6005590D4 /* Crystals.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Crystals.m4r; sourceTree = "<group>"; };
+		AA239AF4188635D6005590D4 /* Hillside.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hillside.m4r; sourceTree = "<group>"; };
+		AA239AF5188635D6005590D4 /* Illuminate.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Illuminate.m4r; sourceTree = "<group>"; };
+		AA239AF6188635D6005590D4 /* Night Owl.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Night Owl.m4r"; sourceTree = "<group>"; };
+		AA239AF7188635D6005590D4 /* Opening.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Opening.m4r; sourceTree = "<group>"; };
+		AA239AF8188635D6005590D4 /* Playtime.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Playtime.m4r; sourceTree = "<group>"; };
+		AA239AF9188635D6005590D4 /* Presto.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Presto.m4r; sourceTree = "<group>"; };
+		AA239AFA188635D6005590D4 /* Radar.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Radar.m4r; sourceTree = "<group>"; };
+		AA239AFB188635D6005590D4 /* Radiate.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Radiate.m4r; sourceTree = "<group>"; };
+		AA239AFC188635D6005590D4 /* Ripples.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ripples.m4r; sourceTree = "<group>"; };
+		AA239AFD188635D6005590D4 /* Sencha.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sencha.m4r; sourceTree = "<group>"; };
+		AA239AFE188635D6005590D4 /* Signal.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Signal.m4r; sourceTree = "<group>"; };
+		AA239AFF188635D6005590D4 /* Silk.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silk.m4r; sourceTree = "<group>"; };
+		AA239B00188635D6005590D4 /* Slow Rise.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slow Rise.m4r"; sourceTree = "<group>"; };
+		AA239B01188635D6005590D4 /* Stargaze.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stargaze.m4r; sourceTree = "<group>"; };
+		AA239B02188635D6005590D4 /* Summit.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Summit.m4r; sourceTree = "<group>"; };
+		AA239B03188635D6005590D4 /* Twinkle.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Twinkle.m4r; sourceTree = "<group>"; };
+		AA239B04188635D6005590D4 /* Uplift.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Uplift.m4r; sourceTree = "<group>"; };
+		AA239B05188635D6005590D4 /* Waves.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Waves.m4r; sourceTree = "<group>"; };
+		AA239B2418863741005590D4 /* LWSetSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetSoundViewController.h; sourceTree = "<group>"; };
+		AA239B2518863741005590D4 /* LWSetSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetSoundViewController.m; sourceTree = "<group>"; };
 		AADA01EE186BA9D400996297 /* Lucidwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucidwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA01F1186BA9D400996297 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AADA01F3186BA9D400996297 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,9 +182,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA239AEA188635D6005590D4 /* Ringtones */ = {
+			isa = PBXGroup;
+			children = (
+				AA239AEB188635D6005590D4 /* Apex.m4r */,
+				AA239AEC188635D6005590D4 /* Beacon.m4r */,
+				AA239AED188635D6005590D4 /* Bulletin.m4r */,
+				AA239AEE188635D6005590D4 /* By The Seaside.m4r */,
+				AA239AEF188635D6005590D4 /* Chimes.m4r */,
+				AA239AF0188635D6005590D4 /* Circuit.m4r */,
+				AA239AF1188635D6005590D4 /* Constellation.m4r */,
+				AA239AF2188635D6005590D4 /* Cosmic.m4r */,
+				AA239AF3188635D6005590D4 /* Crystals.m4r */,
+				AA239AF4188635D6005590D4 /* Hillside.m4r */,
+				AA239AF5188635D6005590D4 /* Illuminate.m4r */,
+				AA239AF6188635D6005590D4 /* Night Owl.m4r */,
+				AA239AF7188635D6005590D4 /* Opening.m4r */,
+				AA239AF8188635D6005590D4 /* Playtime.m4r */,
+				AA239AF9188635D6005590D4 /* Presto.m4r */,
+				AA239AFA188635D6005590D4 /* Radar.m4r */,
+				AA239AFB188635D6005590D4 /* Radiate.m4r */,
+				AA239AFC188635D6005590D4 /* Ripples.m4r */,
+				AA239AFD188635D6005590D4 /* Sencha.m4r */,
+				AA239AFE188635D6005590D4 /* Signal.m4r */,
+				AA239AFF188635D6005590D4 /* Silk.m4r */,
+				AA239B00188635D6005590D4 /* Slow Rise.m4r */,
+				AA239B01188635D6005590D4 /* Stargaze.m4r */,
+				AA239B02188635D6005590D4 /* Summit.m4r */,
+				AA239B03188635D6005590D4 /* Twinkle.m4r */,
+				AA239B04188635D6005590D4 /* Uplift.m4r */,
+				AA239B05188635D6005590D4 /* Waves.m4r */,
+			);
+			path = Ringtones;
+			sourceTree = "<group>";
+		};
 		AADA01E5186BA9D300996297 = {
 			isa = PBXGroup;
 			children = (
+				AA239AEA188635D6005590D4 /* Ringtones */,
 				AADA01F7186BA9D400996297 /* Lucidwake */,
 				AADA02E61877995A00996297 /* Alarms view */,
 				AADA02E71877997900996297 /* AddAlarms view */,
@@ -254,6 +346,8 @@
 				AA239AE518810A58005590D4 /* LWSetRetriggerViewController.h */,
 				AA239AE618810A58005590D4 /* LWSetRetriggerViewController.m */,
 				AA239AE818811B5A005590D4 /* LWSetRetriggerViewController.xib */,
+				AA239B2418863741005590D4 /* LWSetSoundViewController.h */,
+				AA239B2518863741005590D4 /* LWSetSoundViewController.m */,
 			);
 			name = "AddAlarms view";
 			sourceTree = "<group>";
@@ -335,12 +429,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */,
+				AA239B0E188635D6005590D4 /* Crystals.m4r in Resources */,
+				AA239B11188635D6005590D4 /* Night Owl.m4r in Resources */,
+				AA239B0A188635D6005590D4 /* Chimes.m4r in Resources */,
 				AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */,
 				AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */,
+				AA239B1B188635D6005590D4 /* Slow Rise.m4r in Resources */,
+				AA239B18188635D6005590D4 /* Sencha.m4r in Resources */,
+				AA239B20188635D6005590D4 /* Waves.m4r in Resources */,
+				AA239B07188635D6005590D4 /* Beacon.m4r in Resources */,
+				AA239B1C188635D6005590D4 /* Stargaze.m4r in Resources */,
+				AA239B1D188635D6005590D4 /* Summit.m4r in Resources */,
+				AA239B0B188635D6005590D4 /* Circuit.m4r in Resources */,
+				AA239B13188635D6005590D4 /* Playtime.m4r in Resources */,
+				AA239B0C188635D6005590D4 /* Constellation.m4r in Resources */,
+				AA239B1A188635D6005590D4 /* Silk.m4r in Resources */,
+				AA239B06188635D6005590D4 /* Apex.m4r in Resources */,
+				AA239B09188635D6005590D4 /* By The Seaside.m4r in Resources */,
+				AA239B0D188635D6005590D4 /* Cosmic.m4r in Resources */,
+				AA239B10188635D6005590D4 /* Illuminate.m4r in Resources */,
 				AADA029018713CF300996297 /* LWAddAlarmViewController.xib in Resources */,
+				AA239B08188635D6005590D4 /* Bulletin.m4r in Resources */,
+				AA239B0F188635D6005590D4 /* Hillside.m4r in Resources */,
 				AA239AE918811B5A005590D4 /* LWSetRetriggerViewController.xib in Resources */,
 				AADA022D186BAD7300996297 /* LWRecordingsViewController.xib in Resources */,
+				AA239B14188635D6005590D4 /* Presto.m4r in Resources */,
+				AA239B1F188635D6005590D4 /* Uplift.m4r in Resources */,
+				AA239B19188635D6005590D4 /* Signal.m4r in Resources */,
+				AA239B15188635D6005590D4 /* Radar.m4r in Resources */,
+				AA239B16188635D6005590D4 /* Radiate.m4r in Resources */,
+				AA239B12188635D6005590D4 /* Opening.m4r in Resources */,
+				AA239B17188635D6005590D4 /* Ripples.m4r in Resources */,
 				AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */,
+				AA239B1E188635D6005590D4 /* Twinkle.m4r in Resources */,
 				AADA0204186BA9D400996297 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +485,7 @@
 				AADA02E318761D7E00996297 /* LWAlarmCell.m in Sources */,
 				AA239AD71879F9BB005590D4 /* LWRecording.m in Sources */,
 				AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */,
+				AA239B2618863741005590D4 /* LWSetSoundViewController.m in Sources */,
 				AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */,
 				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
 				AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */,

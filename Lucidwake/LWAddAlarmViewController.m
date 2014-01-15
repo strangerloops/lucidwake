@@ -12,6 +12,7 @@
 #import "LWSetLabelViewController.h"
 #import "LWSetWeeklyViewController.h"
 #import "LWSetRetriggerViewController.h"
+#import "LWSetSoundViewController.h"
 
 @interface LabelValueCell : UITableViewCell
 @end
@@ -80,7 +81,7 @@
 {
     LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LabelValueCell"];
     NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
-    NSArray *values = [NSArray arrayWithObjects:[alarm name], @"Temp", @"Temp", @"Temp", nil];
+    NSArray *values = [NSArray arrayWithObjects:[alarm name], [alarm sound], @"Temp", @"Temp", nil];
     [[cell textLabel] setText:[titles objectAtIndex:[indexPath row]]];
     [[cell detailTextLabel] setText:[values objectAtIndex:[indexPath row]]];
     return cell;
@@ -100,6 +101,11 @@
         [[labelController labelTextField] setText:[alarm name]];
         [labelController setController:[self controller]];
         [[self controller] pushViewController:labelController animated:YES];
+    } else if ([indexPath row] == 1)
+    {
+        LWSetSoundViewController *soundController = [[LWSetSoundViewController alloc] init];
+        [soundController setAlarm:alarm];
+        [[self controller] pushViewController:soundController animated:YES];
     } else if ([indexPath row] == 2)
     {
         LWSetWeeklyViewController *weeklyController = [[LWSetWeeklyViewController alloc] init];
