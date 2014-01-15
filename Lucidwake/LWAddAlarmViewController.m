@@ -34,7 +34,7 @@
 
 @synthesize alarm;
 
-- (id)initForNewAlarm:(BOOL)isNew
+- (id)init
 {
     self = [super init];
     if(self)
@@ -44,16 +44,13 @@
         UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
         [[self navigationItem] setLeftBarButtonItem:cancelItem];
     }
-    if (!isNew)
-    {
-        [_deleteButton setHidden:false];
-    }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self subwindow] setClipsToBounds:YES];
     [self setTable:[[UITableView alloc] initWithFrame:CGRectMake([[self view] frame].origin.x, [[self view] frame].origin.y, [[self view] frame].size.width, [[self view] frame].size.height / 2) style:UITableViewStylePlain]];
     [[self subwindow] addSubview:[self table]];
     [[self table] setDelegate:self];
@@ -73,6 +70,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [[self table] reloadData];
+    if (!_displayDelete)
+    {
+        [_deleteButton setHidden:true];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

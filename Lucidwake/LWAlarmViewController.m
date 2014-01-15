@@ -52,7 +52,7 @@
 {
     [self setEditing:NO animated:YES];
     LWAlarm *newAlarm = [[LWAlarm alloc] init];
-    LWAddAlarmViewController *addController = [[LWAddAlarmViewController alloc] initForNewAlarm:YES];
+    LWAddAlarmViewController *addController = [[LWAddAlarmViewController alloc] init];
     [addController setAlarm:newAlarm];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addController];
     [addController setController:navigationController];
@@ -107,11 +107,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LWAddAlarmViewController *editController = [[LWAddAlarmViewController alloc] initForNewAlarm:NO];
+    LWAddAlarmViewController *editController = [[LWAddAlarmViewController alloc] init];
     LWAlarm *a = [[[LWAlarmStore sharedStore] allAlarms] objectAtIndex:[indexPath row]];
     [editController setAlarm:a];
     [editController setAlarmBackup:[a clone]];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editController];
+    [editController setDisplayDelete:YES];
     [editController setController:navigationController];
     [navigationController setModalPresentationStyle:UIModalPresentationFormSheet];
     [navigationController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];

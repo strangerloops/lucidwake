@@ -74,6 +74,14 @@
 
 - (void)removeAlarm:(LWAlarm *)p
 {
+    for (UILocalNotification *n in [p notificationsArray])
+    {
+        [[UIApplication sharedApplication] cancelLocalNotification:n];
+    }
+    for (UILocalNotification *n in [p retriggersArray])
+    {
+        [[UIApplication sharedApplication] cancelLocalNotification:n];
+    }
     [allAlarms removeObjectIdenticalTo:p];
 }
 

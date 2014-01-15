@@ -14,6 +14,10 @@
 
 @synthesize statusSwitch;
 
+// probably scheduling / unscheduling notifications should be the alarm's method
+// that way this disgusting code doesn't get repeated in the when the store has to unschedule alarms
+// and like manually switching the switch ugh lol ugh
+
 - (IBAction)statusSwitch:(id)sender
 {
     LWAlarm *alarm = [[[LWAlarmStore sharedStore] allAlarms] objectAtIndex:_index];

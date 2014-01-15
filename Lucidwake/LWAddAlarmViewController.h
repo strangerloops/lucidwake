@@ -22,9 +22,9 @@
 @property (strong, nonatomic) UITableView *table;
 @property (strong, nonatomic) IBOutlet UIView *subwindow;
 @property (strong, nonatomic) UINavigationController *controller;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) IBOutlet UIButton *deleteButton;
+@property (nonatomic, assign) BOOL displayDelete;
 
-- (id)initForNewAlarm:(BOOL)isNew;
 - (IBAction)deleteAlarm:(id)sender;
 
 @end
