@@ -24,6 +24,8 @@
 @property (strong, nonatomic) LWRecording *recording;
 @property (assign, nonatomic) BOOL recordingInProgress;
 @property (assign, nonatomic) BOOL openedFromAlarm;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) NSTimer *timer;
 
 - (IBAction)recordPauseTapped:(id)sender;
 - (IBAction)doneTapped:(id)sender;

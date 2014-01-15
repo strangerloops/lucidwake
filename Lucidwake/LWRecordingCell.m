@@ -16,14 +16,44 @@
 {
     if (![_player isPlaying])
     {
+        [_slider setMaximumValue:[_player duration]];
+        [_slider setValue:[_player currentTime]];
+        [_slider addTarget:self action:@selector(updatePlayer) forControlEvents:UIControlEventValueChanged];
+        [_slider setHidden:NO];
+        if (!_timer)
+        {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+        }
         [_player setDelegate:self];
         [_player play];
         [audioButton setTitle:@"Pause" forState:UIControlStateNormal];
     } else
     {
         [_player pause];
+        if (_timer)
+        {
+            [_timer invalidate];
+            _timer = nil;
+        }
         [audioButton setTitle:@"Play" forState:UIControlStateNormal];
     }
+}
+
+- (void)updateSlider
+{
+    [_slider setValue:[_player currentTime]];
+}
+
+- (void)updatePlayer
+{
+    [_player stop];
+    [_player setCurrentTime:[_slider value]];
+    [_player play];
+}
+
+- (void)deleteRecording:(id)sender
+{
+    
 }
 
 @end

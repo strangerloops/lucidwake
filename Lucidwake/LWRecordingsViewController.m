@@ -18,12 +18,32 @@
     self = [super init];
     if (self)
     {
-        UITabBarItem *tbi = [self tabBarItem];
-        [tbi setTitle:@"Recordings"];
+        // UITabBarItem *tbi = [self tabBarItem];
+        // [tbi setTitle:@"Recordings"];
+        UINavigationItem *n = [self navigationItem];
+        [n setTitle:@"Recordings"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"notification" object:nil];
-
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     }
     return self;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [_table setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        LWRecordingStore *rs = [LWRecordingStore sharedStore];
+        NSArray *recordings = [rs allRecordings];
+        LWRecording *p = [recordings objectAtIndex:[indexPath row]];
+        [rs removeRecording:p];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (void)viewDidLoad
@@ -88,13 +108,33 @@
     
     if (![recorder isRecording])
     {
+        if (!_timer)
+        {
+            _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateLabel) userInfo:nil repeats:YES];
+        }
+        [self updateLabel];
+        [_durationLabel setHidden:NO];
         [recorder record];
         [_recordButton setTitle:@"Pause" forState:UIControlStateNormal];
     } else
     {
         [recorder pause];
+        if (_timer)
+        {
+            [_timer invalidate];
+            _timer = nil;
+        }
         [_recordButton setTitle:@"Record" forState:UIControlStateNormal];
     }
+}
+
+- (void)updateLabel
+{
+    NSInteger ti = (NSInteger)[recorder currentTime];
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    [_durationLabel setText:[NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds]];
 }
 
 - (IBAction)doneTapped:(id)sender
@@ -102,6 +142,7 @@
     [recorder stop];
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setActive:NO error:nil];
+    [_durationLabel setHidden:YES];
 }
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
@@ -136,6 +177,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[[LWRecordingStore sharedStore] allRecordings] count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 88.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

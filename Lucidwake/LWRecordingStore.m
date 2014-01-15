@@ -70,4 +70,9 @@
     }
 }
 
+- (void)removeRecording:(LWRecording *)r
+{
+    [allRecordings removeObjectIdenticalTo:r];
+}
+
 @end

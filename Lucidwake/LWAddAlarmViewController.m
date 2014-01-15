@@ -81,7 +81,17 @@
 {
     LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LabelValueCell"];
     NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
-    NSArray *values = [NSArray arrayWithObjects:[alarm name], [alarm sound], @"Temp", @"Temp", nil];
+    NSArray *weekdays = [NSArray arrayWithObjects:@" Su", @" M", @" Tu", @" W", @" Th", @" F", @" Sa", nil];
+    NSString *repeatLabel = [NSString stringWithFormat:@""];
+    for (int i = 0; i < [[alarm weekly] count]; i++)
+    {
+        if ([[[alarm weekly] objectAtIndex:i] intValue] == 1)
+        {
+            repeatLabel = [repeatLabel stringByAppendingString:[weekdays objectAtIndex:i]];
+        }
+    }
+    NSString *retriggerLabel = [NSString stringWithFormat:@"%d retriggers, %dm apart", [alarm retriggers], [alarm retriggerInterval]];
+    NSArray *values = [NSArray arrayWithObjects:[alarm name], [alarm sound], repeatLabel, retriggerLabel, nil];
     [[cell textLabel] setText:[titles objectAtIndex:[indexPath row]]];
     [[cell detailTextLabel] setText:[values objectAtIndex:[indexPath row]]];
     return cell;

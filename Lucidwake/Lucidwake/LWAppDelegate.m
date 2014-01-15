@@ -19,13 +19,16 @@
     LWAlarmViewController *alarmViewController = [[LWAlarmViewController alloc] init];
     LWRecordingsViewController *recordingsViewController = [[LWRecordingsViewController alloc] init];
         
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:alarmViewController];
+    UINavigationController *alarmController = [[UINavigationController alloc] initWithRootViewController:alarmViewController];
+    UINavigationController *recordingController = [[UINavigationController alloc] initWithRootViewController:recordingsViewController];
     
-    UITabBarItem *tbi = [navigationController tabBarItem];
+    UITabBarItem *tbi = [alarmController tabBarItem];
     [tbi setTitle:@"Alarms"];
+    UITabBarItem *tbii = [recordingController tabBarItem];
+    [tbii setTitle:@"Recordings"];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    NSArray *viewControllers = [NSArray arrayWithObjects:navigationController, recordingsViewController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:alarmController, recordingController, nil];
     [tabBarController setViewControllers:viewControllers];
     [self setTabControl:tabBarController];
     [[self window] setRootViewController:tabBarController];
