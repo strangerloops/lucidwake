@@ -51,9 +51,11 @@
     [_player play];
 }
 
-- (void)deleteRecording:(id)sender
+- (void)shareRecording:(id)sender
 {
-    
+    NSArray *objectToShare = [NSArray arrayWithObject: [_player url]];
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:objectToShare applicationActivities:nil];
+    [[self viewController] presentViewController:activityController animated:YES completion:nil];
 }
 
 @end

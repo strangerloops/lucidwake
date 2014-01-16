@@ -48,4 +48,35 @@
     return c;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_name forKey:@"name"];
+    [aCoder encodeObject:_sound forKey:@"sound"];
+    [aCoder encodeObject:_hourMinutes forKey:@"hourMinutes"];
+    [aCoder encodeObject:_weekly forKey:@"weekly"];
+    [aCoder encodeObject:_notificationsArray forKey:@"notificationsArray"];
+    [aCoder encodeObject:_retriggersArray forKey:@"retriggersArray"];
+    [aCoder encodeInt:_retriggerInterval forKey:@"retriggerInterval"];
+    [aCoder encodeInt:_retriggers forKey:@"retriggers"];
+    [aCoder encodeBool:_stale forKey:@"stale"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self)
+    {
+        [self setName:[aDecoder decodeObjectForKey:@"name"]];
+        [self setSound:[aDecoder decodeObjectForKey:@"sound"]];
+        [self setHourMinutes:[aDecoder decodeObjectForKey:@"hourMinutes"]];
+        [self setWeekly:[aDecoder decodeObjectForKey:@"weekly"]];
+        [self setNotificationsArray:[aDecoder decodeObjectForKey:@"notificationsArray"]];
+        [self setRetriggersArray:[aDecoder decodeObjectForKey:@"retriggersArray"]];
+        [self setRetriggerInterval:[aDecoder decodeIntForKey:@"retriggerInterval"]];
+        [self setRetriggers:[aDecoder decodeIntForKey:@"retriggers"]];
+        [self setStale:[aDecoder decodeBoolForKey:@"stale"]];
+    }
+    return self;
+}
+
 @end

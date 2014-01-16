@@ -21,6 +21,6 @@
 - (void)addAlarm:(LWAlarm *)p;
 - (void)removeAlarm:(LWAlarm *)p;
 - (NSString *)archivePath;
-- (void)saveChanges;
+- (BOOL)saveChanges;
 
 @end

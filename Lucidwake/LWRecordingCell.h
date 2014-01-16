@@ -21,11 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
-// @property (weak, nonatomic) IBOutlet UIButton *deletButton;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) NSTimer *timer;
+@property (weak, nonatomic) UIViewController *viewController;
 
 - (IBAction)playRecording:(id)sender;
-// - (IBAction)deleteRecording:(id)sender;
+- (IBAction)shareRecording:(id)sender;
 
 @end

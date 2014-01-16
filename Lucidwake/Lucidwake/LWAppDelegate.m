@@ -9,6 +9,8 @@
 #import "LWAppDelegate.h"
 #import "LWAlarmViewController.h"
 #import "LWRecordingsViewController.h"
+#import "LWAlarmStore.h"
+#import "LWRecordingStore.h"
 
 @implementation LWAppDelegate
 
@@ -40,6 +42,22 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
+    BOOL success = [[LWAlarmStore sharedStore] saveChanges];
+    if (success)
+    {
+        NSLog(@"Saved the alarms.");
+    } else
+    {
+        NSLog(@"Failed to save alarms.");
+    }
+    success = [[LWRecordingStore sharedStore] saveChanges];
+    if (success)
+    {
+        NSLog(@"Saved the recordings.");
+    } else
+    {
+        NSLog(@"Failed to save recordings.");
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

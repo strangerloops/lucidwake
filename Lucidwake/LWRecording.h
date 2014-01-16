@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LWRecording : NSObject
-
-{
-    
-}
+@interface LWRecording : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSDate *date;

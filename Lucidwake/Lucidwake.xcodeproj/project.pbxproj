@@ -66,6 +66,7 @@
 		AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02E418761E2900996297 /* LWAlarmCell.xib */; };
 		AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02E9187799DF00996297 /* LWSetLabelViewController.m */; };
 		AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */; };
+		AAF1C55318876EFF00D33FEE /* up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C55218876EFF00D33FEE /* up.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		AADA02E8187799DF00996297 /* LWSetLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetLabelViewController.h; sourceTree = "<group>"; };
 		AADA02E9187799DF00996297 /* LWSetLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetLabelViewController.m; sourceTree = "<group>"; };
 		AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetLabelViewController.xib; sourceTree = "<group>"; };
+		AAF1C55218876EFF00D33FEE /* up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = up.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		AA239AEA188635D6005590D4 /* Ringtones */ = {
 			isa = PBXGroup;
 			children = (
+				AAF1C54C18876C6400D33FEE /* New Group */,
 				AA239AEB188635D6005590D4 /* Apex.m4r */,
 				AA239AEC188635D6005590D4 /* Beacon.m4r */,
 				AA239AED188635D6005590D4 /* Bulletin.m4r */,
@@ -219,6 +222,7 @@
 		AADA01E5186BA9D300996297 = {
 			isa = PBXGroup;
 			children = (
+				AAF1C54D18876C7300D33FEE /* Icons */,
 				AA239AEA188635D6005590D4 /* Ringtones */,
 				AADA01F7186BA9D400996297 /* Lucidwake */,
 				AADA02E61877995A00996297 /* Alarms view */,
@@ -352,6 +356,21 @@
 			name = "AddAlarms view";
 			sourceTree = "<group>";
 		};
+		AAF1C54C18876C6400D33FEE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		AAF1C54D18876C7300D33FEE /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				AAF1C55218876EFF00D33FEE /* up.jpg */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +461,7 @@
 				AA239B1D188635D6005590D4 /* Summit.m4r in Resources */,
 				AA239B0B188635D6005590D4 /* Circuit.m4r in Resources */,
 				AA239B13188635D6005590D4 /* Playtime.m4r in Resources */,
+				AAF1C55318876EFF00D33FEE /* up.jpg in Resources */,
 				AA239B0C188635D6005590D4 /* Constellation.m4r in Resources */,
 				AA239B1A188635D6005590D4 /* Silk.m4r in Resources */,
 				AA239B06188635D6005590D4 /* Apex.m4r in Resources */,

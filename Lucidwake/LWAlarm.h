@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LWAlarm : NSObject
+@interface LWAlarm : NSObject <NSCoding>
 
 {
 

@@ -85,12 +85,17 @@
     [allAlarms removeObjectIdenticalTo:p];
 }
 
-
 - (NSString *)archivePath
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     return [documentDirectory stringByAppendingString:@"alarms.archive"];
+}
+
+- (BOOL)saveChanges
+{
+    NSString *path = [self archivePath];
+    return [NSKeyedArchiver archiveRootObject:allAlarms toFile:path];
 }
 
 

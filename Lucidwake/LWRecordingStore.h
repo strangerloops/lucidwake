@@ -21,5 +21,6 @@
 - (NSString *)archivePath;
 - (void)addRecording:(LWRecording *)r;
 - (void)removeRecording:(LWRecording *)r;
+- (BOOL)saveChanges;
 
 @end

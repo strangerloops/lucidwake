@@ -31,8 +31,8 @@
     self = [super init];
     if(self)
     {
-     //   NSString *path = [self archivePath];
-     //   allRecordings = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        NSString *path = [self archivePath];
+        allRecordings = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         if (!allRecordings)
         {
             allRecordings = [[NSMutableArray alloc] init];
@@ -73,6 +73,19 @@
 - (void)removeRecording:(LWRecording *)r
 {
     [allRecordings removeObjectIdenticalTo:r];
+}
+
+- (NSString *)archivePath
+{
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    return [documentDirectory stringByAppendingString:@"recordings.archive"];
+}
+
+- (BOOL)saveChanges
+{
+    NSString *path = [self archivePath];
+    return [NSKeyedArchiver archiveRootObject:allRecordings toFile:path];
 }
 
 @end
