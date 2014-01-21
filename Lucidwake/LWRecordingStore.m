@@ -77,9 +77,9 @@
 
 - (NSString *)archivePath
 {
-    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingString:@"recordings.archive"];
+    NSString *localPath = @"Documents/recordings.archive";
+    NSString *fullPath = [NSHomeDirectory() stringByAppendingPathComponent:localPath];
+    return fullPath;
 }
 
 - (BOOL)saveChanges

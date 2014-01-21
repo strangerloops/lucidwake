@@ -38,6 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIColor *clr = [UIColor colorWithRed:.875 green:.88 blue:.91 alpha:1];
+    [[self view] setBackgroundColor:clr];
     UINib *nib = [UINib nibWithNibName:@"LWAlarmCell" bundle:Nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"LWAlarmCell"];
 }
@@ -88,7 +90,11 @@
     if (![p stale])
     {
         [p setStale:YES];
-        [[cell statusSwitch] sendActionsForControlEvents:UIControlEventValueChanged];
+        [p scheduleNotifications];
+    }
+    if ([[p notificationsArray] count] == 0 & [[p retriggersArray] count] == 0)
+    {
+        [[cell statusSwitch] setOn:NO];
     }
     return cell;
 }

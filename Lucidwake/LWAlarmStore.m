@@ -74,22 +74,15 @@
 
 - (void)removeAlarm:(LWAlarm *)p
 {
-    for (UILocalNotification *n in [p notificationsArray])
-    {
-        [[UIApplication sharedApplication] cancelLocalNotification:n];
-    }
-    for (UILocalNotification *n in [p retriggersArray])
-    {
-        [[UIApplication sharedApplication] cancelLocalNotification:n];
-    }
+    [p unscheduleNotifications];
     [allAlarms removeObjectIdenticalTo:p];
 }
 
 - (NSString *)archivePath
 {
-    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    return [documentDirectory stringByAppendingString:@"alarms.archive"];
+    NSString *localPath = @"Documents/alarms.archive";
+    NSString *fullPath = [NSHomeDirectory() stringByAppendingPathComponent:localPath];
+    return fullPath;
 }
 
 - (BOOL)saveChanges

@@ -51,6 +51,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIColor *clr = [UIColor colorWithRed:.875 green:.88 blue:.91 alpha:1];
+    [[self view] setBackgroundColor:clr];
     [[self subwindow] setClipsToBounds:YES];
     [self setTable:[[UITableView alloc] initWithFrame:CGRectMake([[self view] frame].origin.x, [[self view] frame].origin.y, [[self view] frame].size.width, [[self view] frame].size.height / 2) style:UITableViewStylePlain]];
     [[self subwindow] addSubview:[self table]];

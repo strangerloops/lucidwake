@@ -18,8 +18,6 @@
     self = [super init];
     if (self)
     {
-        // UITabBarItem *tbi = [self tabBarItem];
-        // [tbi setTitle:@"Recordings"];
         UINavigationItem *n = [self navigationItem];
         [n setTitle:@"Recordings"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"notification" object:nil];
@@ -49,9 +47,12 @@
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
+    
+    UIColor *clr = [UIColor colorWithRed:.875 green:.88 blue:.91 alpha:1];
+    [[self view] setBackgroundColor:clr];
+    
     [_doneButton setHidden:YES];
     [_doneButton setEnabled:NO];
-    
     UITableView *tv = [[UITableView alloc] initWithFrame:CGRectMake([[self view] frame].origin.x, [[self view] frame].origin.y, [[self view] frame].size.width, [[self view] frame].size.height / 2) style:UITableViewStylePlain];
     [self setTable:tv];
     [_table setDelegate:self];
@@ -59,6 +60,7 @@
     [_subwindow addSubview:_table];
     UINib *nib = [UINib nibWithNibName:@"LWRecordingCell" bundle:Nil];
     [_table registerNib:nib forCellReuseIdentifier:@"LWRecordingCell"];
+    [_table setAllowsSelection:NO];
 }
 
 - (void)receivedNotification:(NSNotification *)notification
@@ -105,7 +107,6 @@
         [_doneButton setEnabled:YES];
         [_doneButton setHidden:NO];
     }
-    
     if (![recorder isRecording])
     {
         if (!_timer)
@@ -134,7 +135,7 @@
     NSInteger seconds = ti % 60;
     NSInteger minutes = (ti / 60) % 60;
     NSInteger hours = (ti / 3600);
-    [_durationLabel setText:[NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds]];
+    [_durationLabel setText:[NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds]];
 }
 
 - (IBAction)doneTapped:(id)sender

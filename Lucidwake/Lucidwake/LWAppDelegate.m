@@ -72,6 +72,7 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"notification" object:nil];
+    [[UIApplication sharedApplication] cancelLocalNotification:notification]; // this silences alarm post dismissal hopefully?
     [_tabControl setSelectedIndex:1];
 }
 
