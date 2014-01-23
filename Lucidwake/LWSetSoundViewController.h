@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class LWAlarm;
 
-@interface LWSetSoundViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LWSetSoundViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate>
+
+{
+    AVAudioPlayer *player;
+}
 
 @property (strong, nonatomic) LWAlarm *alarm;
 @property (strong, nonatomic) NSMutableArray *soundFiles;

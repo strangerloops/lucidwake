@@ -53,12 +53,10 @@
     [super viewDidLoad];
     UIColor *clr = [UIColor colorWithRed:.875 green:.88 blue:.91 alpha:1];
     [[self view] setBackgroundColor:clr];
-    [[self subwindow] setClipsToBounds:YES];
-    [self setTable:[[UITableView alloc] initWithFrame:CGRectMake([[self view] frame].origin.x, [[self view] frame].origin.y, [[self view] frame].size.width, [[self view] frame].size.height / 2) style:UITableViewStylePlain]];
-    [[self subwindow] addSubview:[self table]];
-    [[self table] setDelegate:self];
-    [[self table] setDataSource:self];
-    [[self table] registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LabelValueCell"];
+    [_datePicker setBackgroundColor:[UIColor whiteColor]];
+    [_tableView setDataSource:self];
+    [_tableView setDelegate:self];
+    [_tableView registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LabelValueCell"];
     [_datePicker addTarget:self action:@selector(updateTime) forControlEvents:UIControlEventValueChanged];
     [self updateTime];
 }
@@ -72,7 +70,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[self table] reloadData];
+    [_tableView reloadData];
     if (!_displayDelete)
     {
         [_deleteButton setHidden:true];

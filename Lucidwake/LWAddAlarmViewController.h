@@ -19,8 +19,7 @@
 @property (strong, nonatomic) LWAlarm *alarm;
 @property (strong, nonatomic) LWAlarm *alarmBackup;
 @property (strong, nonatomic) NSArray *items;
-@property (strong, nonatomic) UITableView *table;
-@property (strong, nonatomic) IBOutlet UIView *subwindow;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UINavigationController *controller;
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 @property (nonatomic, assign) BOOL displayDelete;

@@ -38,6 +38,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [player stop];
     if ([indexPath compare:_checkedIndexPath] != NSOrderedSame)
     {
         UITableViewCell *toUncheck = [tableView cellForRowAtIndexPath:_checkedIndexPath];
@@ -48,6 +49,10 @@
         [_alarm setSound:[_soundFiles objectAtIndex:[indexPath row]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:[_soundFiles objectAtIndex:[indexPath row]] ofType:@".m4r"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:Nil];
+    [player play];
 }
 
 @end
