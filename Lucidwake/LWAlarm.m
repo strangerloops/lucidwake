@@ -8,6 +8,7 @@
 
 #import "LWAlarm.h"
 #import "LWAlarmStore.h"
+#import "LWTemporallyOrderedNotifications.h"
 
 @implementation LWAlarm
 
@@ -115,7 +116,9 @@
             [ln setRepeatInterval:NSWeekCalendarUnit];
             [ln setSoundName:soundString];
             [_notificationsArray addObject:ln];
+            [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
             [[UIApplication sharedApplication] scheduleLocalNotification:ln];
+            NSLog(@"Scheduled notification for %@", [ln fireDate]);
             scheduled = true;
         }
     }
@@ -126,7 +129,9 @@
         [ln setAlertBody:_name];
         [ln setSoundName:soundString];
         [_notificationsArray addObject:ln];
+        [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
         [[UIApplication sharedApplication] scheduleLocalNotification:ln];
+        NSLog(@"Scheduled notification for %@", [ln fireDate]);
     }
     for (int i = 0; i < [_notificationsArray count]; i++)
     {
@@ -143,7 +148,9 @@
                 [r setAlertBody:[ln alertBody]];
                 [r setSoundName:soundString];
                 [_retriggersArray addObject:r];
+                [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
                 [[UIApplication sharedApplication] scheduleLocalNotification:r];
+                NSLog(@"Scheduled notification for %@", [r fireDate]);
             }
         }
     }
@@ -155,11 +162,13 @@
     {
         [[UIApplication sharedApplication] cancelLocalNotification:ln];
         [_notificationsArray removeObjectIdenticalTo:ln];
+        [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
     }
     for (UILocalNotification *ln in _retriggersArray)
     {
         [[UIApplication sharedApplication] cancelLocalNotification:ln];
         [_retriggersArray removeObjectIdenticalTo:ln];
+        [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
     }
 }
 

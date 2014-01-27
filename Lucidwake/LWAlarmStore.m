@@ -8,6 +8,7 @@
 
 #import "LWAlarmStore.h"
 #import "LWAlarm.h"
+#import "LWTemporallyOrderedNotifications.h"
 
 @implementation LWAlarmStore
 
@@ -90,6 +91,5 @@
     NSString *path = [self archivePath];
     return [NSKeyedArchiver archiveRootObject:allAlarms toFile:path];
 }
-
 
 @end

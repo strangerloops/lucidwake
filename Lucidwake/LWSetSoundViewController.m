@@ -32,7 +32,8 @@
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }    [[cell textLabel] setText:[_soundFiles objectAtIndex:[indexPath row]]];
+    }
+    [[cell textLabel] setText:[_soundFiles objectAtIndex:[indexPath row]]];
     return cell;
 }
 

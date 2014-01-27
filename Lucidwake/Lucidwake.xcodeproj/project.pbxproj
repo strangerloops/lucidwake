@@ -67,6 +67,7 @@
 		AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02E9187799DF00996297 /* LWSetLabelViewController.m */; };
 		AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */; };
 		AAF1C55318876EFF00D33FEE /* up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C55218876EFF00D33FEE /* up.jpg */; };
+		AAF1C5561891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		AADA02E9187799DF00996297 /* LWSetLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetLabelViewController.m; sourceTree = "<group>"; };
 		AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetLabelViewController.xib; sourceTree = "<group>"; };
 		AAF1C55218876EFF00D33FEE /* up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = up.jpg; sourceTree = "<group>"; };
+		AAF1C5541891CAAD00D33FEE /* LWTemporallyOrderedNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTemporallyOrderedNotifications.h; sourceTree = "<group>"; };
+		AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTemporallyOrderedNotifications.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +306,8 @@
 				AADA0287187138BB00996297 /* LWAlarmStore.m */,
 				AADA02891871391100996297 /* LWAlarm.h */,
 				AADA028A1871391100996297 /* LWAlarm.m */,
+				AAF1C5541891CAAD00D33FEE /* LWTemporallyOrderedNotifications.h */,
+				AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */,
 			);
 			name = Alarm;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */,
 				AADA0288187138BB00996297 /* LWAlarmStore.m in Sources */,
 				AA239ADA1879FFC5005590D4 /* LWRecordingStore.m in Sources */,
+				AAF1C5561891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m in Sources */,
 				AADA028E18713CDB00996297 /* LWAddAlarmViewController.m in Sources */,
 				AA239AE718810A58005590D4 /* LWSetRetriggerViewController.m in Sources */,
 				AADA01FE186BA9D400996297 /* main.m in Sources */,
