@@ -66,6 +66,7 @@
             NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
             NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
             player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+            
         }
         UIBackgroundTaskIdentifier bgTask = 0;
         UIApplication *app = [UIApplication sharedApplication];
@@ -76,6 +77,8 @@
         NSDate *rightNow = [NSDate date];
         NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
         alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(playAlarm) userInfo:nil repeats:NO];
+        [[NSRunLoop currentRunLoop] addTimer:silenceTimer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] addTimer:alarmTimer forMode:NSDefaultRunLoopMode];
     }
 }
 
@@ -83,6 +86,7 @@
 {
     [player stop];
     [player setCurrentTime:0];
+    [player prepareToPlay];
     [player play];
 }
 
@@ -98,6 +102,7 @@
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
     [player setNumberOfLoops:-1];
+    [player prepareToPlay];
     [player play];
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];

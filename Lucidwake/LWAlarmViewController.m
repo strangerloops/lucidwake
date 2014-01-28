@@ -90,8 +90,11 @@
     if ([[p notificationsArray] count] == 0 & [[p retriggersArray] count] == 0)
     {
         [[cell statusSwitch] setOn:NO];
+    } else
+    {
+        [[cell statusSwitch] setOn:YES];
     }
-    NSLog(@"%d %d", [[p notificationsArray] count], [[p retriggersArray] count]);
+    NSLog(@"%lu %lu", (unsigned long)[[p notificationsArray] count], (unsigned long)[[p retriggersArray] count]);
     return cell;
 }
 
