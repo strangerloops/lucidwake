@@ -68,6 +68,7 @@
 		AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */; };
 		AAF1C55318876EFF00D33FEE /* up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C55218876EFF00D33FEE /* up.jpg */; };
 		AAF1C5561891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */; };
+		AAF1C5581896E54000D33FEE /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C5571896E54000D33FEE /* silence.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		AAF1C55218876EFF00D33FEE /* up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = up.jpg; sourceTree = "<group>"; };
 		AAF1C5541891CAAD00D33FEE /* LWTemporallyOrderedNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTemporallyOrderedNotifications.h; sourceTree = "<group>"; };
 		AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTemporallyOrderedNotifications.m; sourceTree = "<group>"; };
+		AAF1C5571896E54000D33FEE /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				AA239B03188635D6005590D4 /* Twinkle.m4r */,
 				AA239B04188635D6005590D4 /* Uplift.m4r */,
 				AA239B05188635D6005590D4 /* Waves.m4r */,
+				AAF1C5571896E54000D33FEE /* silence.wav */,
 			);
 			path = Ringtones;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				AA239B17188635D6005590D4 /* Ripples.m4r in Resources */,
 				AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */,
 				AA239B1E188635D6005590D4 /* Twinkle.m4r in Resources */,
+				AAF1C5581896E54000D33FEE /* silence.wav in Resources */,
 				AADA0204186BA9D400996297 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

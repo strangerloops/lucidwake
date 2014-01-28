@@ -16,7 +16,7 @@
 {
     self = [super init];
     [self setName:@"Alarm"];
-    [self setSound:@"Default"];
+    [self setSound:@"Uplift"];
     [self setWeekly:[[NSMutableArray alloc] init]];
     for (int i = 0; i < 7; i++)
     {
@@ -24,6 +24,7 @@
     }
     [self setNotificationsArray:[[NSMutableArray alloc] init]];
     [self setRetriggersArray:[[NSMutableArray alloc] init]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"cleanArrays" object:nil];
     return self;
 }
 
@@ -47,6 +48,16 @@
     [c setRetriggerInterval:[self retriggerInterval]];
     [c setRetriggers:[self retriggers]];
     return c;
+}
+
+- (void)receivedNotification:(NSNotification *)notification
+{
+    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
+    [_notificationsArray removeObjectIdenticalTo:ln];
+    [_retriggersArray removeObjectIdenticalTo:ln];
+    [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
+    ln = nil;
+    NSLog(@"LWAlarm's notification center method called.");
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -84,7 +95,6 @@
 {
     BOOL scheduled = false;
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSString *soundString = [_sound stringByAppendingString:@".m4r"];
     NSDate *thisInstant = [NSDate date];
     NSDateComponents *thisInstantComponents = [cal components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:thisInstant];
     [thisInstantComponents setHour:[_hourMinutes hour]];
@@ -114,7 +124,7 @@
             [ln setFireDate:repeatDate];
             [ln setAlertBody:_name];
             [ln setRepeatInterval:NSWeekCalendarUnit];
-            [ln setSoundName:soundString];
+            [ln setSoundName:_sound];
             [_notificationsArray addObject:ln];
             [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
             [[UIApplication sharedApplication] scheduleLocalNotification:ln];
@@ -127,7 +137,7 @@
         UILocalNotification *ln = [[UILocalNotification alloc] init];
         [ln setFireDate:scheduledDate];
         [ln setAlertBody:_name];
-        [ln setSoundName:soundString];
+        [ln setSoundName:_sound];
         [_notificationsArray addObject:ln];
         [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
         [[UIApplication sharedApplication] scheduleLocalNotification:ln];
@@ -146,7 +156,7 @@
                 UILocalNotification *r = [[UILocalNotification alloc] init];
                 [r setFireDate:retriggerDate];
                 [r setAlertBody:[ln alertBody]];
-                [r setSoundName:soundString];
+                [r setSoundName:_sound];
                 [_retriggersArray addObject:r];
                 [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
                 [[UIApplication sharedApplication] scheduleLocalNotification:r];
@@ -158,16 +168,16 @@
 
 - (void)unscheduleNotifications
 {
-    for (UILocalNotification *ln in _notificationsArray)
+    while ([_notificationsArray count] > 0)
     {
-        [[UIApplication sharedApplication] cancelLocalNotification:ln];
-        [_notificationsArray removeObjectIdenticalTo:ln];
+        UILocalNotification *ln = [_notificationsArray objectAtIndex:0];
+        [_notificationsArray removeObjectAtIndex:0];
         [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
     }
-    for (UILocalNotification *ln in _retriggersArray)
+    while ([_retriggersArray count] > 0)
     {
-        [[UIApplication sharedApplication] cancelLocalNotification:ln];
-        [_retriggersArray removeObjectIdenticalTo:ln];
+        UILocalNotification *ln = [_retriggersArray objectAtIndex:0];
+        [_retriggersArray removeObjectAtIndex:0];
         [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
     }
 }

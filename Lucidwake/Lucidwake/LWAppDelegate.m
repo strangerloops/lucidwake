@@ -9,6 +9,7 @@
 #import "LWAppDelegate.h"
 #import "LWAlarmViewController.h"
 #import "LWRecordingsViewController.h"
+#import "LWTemporallyOrderedNotifications.h"
 #import "LWAlarmStore.h"
 #import "LWRecordingStore.h"
 
@@ -58,23 +59,68 @@
     {
         NSLog(@"Failed to save recordings.");
     }
+    if ([[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count] > 0)
+    {
+        if (!player)
+        {
+            NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
+            NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+            player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+        }
+        UIBackgroundTaskIdentifier bgTask = 0;
+        UIApplication *app = [UIApplication sharedApplication];
+        bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+            [app endBackgroundTask:bgTask];
+            }];
+        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
+        NSDate *rightNow = [NSDate date];
+        NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
+        alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(playAlarm) userInfo:nil repeats:NO];
+    }
+}
+
+- (void)playSilence
+{
+    [player stop];
+    [player setCurrentTime:0];
+    [player play];
+}
+
+- (void)playAlarm
+{
+    [silenceTimer invalidate];
+    silenceTimer = nil;
+    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
+    [player stop];
+    NSString *sound = [ln soundName];
+    [ln setSoundName:nil];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:sound ofType:@".m4r"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    [player setNumberOfLoops:-1];
+    [player play];
+    shouldPresentMicrophone = true;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cleanArrays" object:nil];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    
+    [player stop];
+    [alarmTimer invalidate];
+    alarmTimer = nil;
+    if (shouldPresentMicrophone)
+    {
+        [_tabControl setSelectedIndex:1];
+        shouldPresentMicrophone = false;
+    }
 }
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification" object:nil];
-    [[UIApplication sharedApplication] cancelLocalNotification:notification]; // this silences alarm post dismissal hopefully?
-    [_tabControl setSelectedIndex:1];
-}
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {

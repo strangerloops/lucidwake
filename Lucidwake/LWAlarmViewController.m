@@ -87,15 +87,11 @@
     [[cell nameLabel] setText:[p name]];
     [cell setIndex:[indexPath row]];
     [[cell statusSwitch] setHidden:NO];
-    if (![p stale])
-    {
-        [p setStale:YES];
-        [p scheduleNotifications];
-    }
     if ([[p notificationsArray] count] == 0 & [[p retriggersArray] count] == 0)
     {
         [[cell statusSwitch] setOn:NO];
     }
+    NSLog(@"%d %d", [[p notificationsArray] count], [[p retriggersArray] count]);
     return cell;
 }
 

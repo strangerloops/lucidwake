@@ -133,6 +133,7 @@
 {
     [[LWAlarmStore sharedStore] removeAlarm:alarm];
     [[LWAlarmStore sharedStore] addAlarm:alarm];
+    [alarm scheduleNotifications];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 

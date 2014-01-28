@@ -20,7 +20,7 @@
     {
         UINavigationItem *n = [self navigationItem];
         [n setTitle:@"Recordings"];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"notification" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"startRecording" object:nil];
         [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     }
     return self;
