@@ -15,6 +15,8 @@
 
 @implementation LWAppDelegate
 
+@synthesize player;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -59,31 +61,41 @@
     {
         NSLog(@"Failed to save recordings.");
     }
+    success = [[LWTemporallyOrderedNotifications sharedStore] saveChanges];
+    if (success)
+    {
+        NSLog(@"Saved temporal ordering.");
+    }
+    else
+    {
+        NSLog(@"Failed to save temporal ordering.");
+    }
     if ([[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count] > 0)
     {
-        if (!player)
-        {
-            NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
-            NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-            player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
-            
-        }
-        UIBackgroundTaskIdentifier bgTask = 0;
+        NSLog(@"willResignActive if block called");
         UIApplication *app = [UIApplication sharedApplication];
+        UIBackgroundTaskIdentifier bgTask = 0;
         bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
             [app endBackgroundTask:bgTask];
-            }];
-        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
+        }];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
+        NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+  //    [player setNumberOfLoops:-1];
+        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
         NSDate *rightNow = [NSDate date];
         NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
         alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(playAlarm) userInfo:nil repeats:NO];
-        [[NSRunLoop currentRunLoop] addTimer:silenceTimer forMode:NSDefaultRunLoopMode];
-        [[NSRunLoop currentRunLoop] addTimer:alarmTimer forMode:NSDefaultRunLoopMode];
+        [player prepareToPlay];
+        [player play];
     }
 }
 
 - (void)playSilence
 {
+    NSLog(@"playSilence method called.");
     [player stop];
     [player setCurrentTime:0];
     [player prepareToPlay];
@@ -92,18 +104,22 @@
 
 - (void)playAlarm
 {
+    NSLog(@"playAlarm method called");
     [silenceTimer invalidate];
     silenceTimer = nil;
-    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     [player stop];
+    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     NSString *sound = [ln soundName];
     [ln setSoundName:nil];
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:sound ofType:@".m4r"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
     [player setNumberOfLoops:-1];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [player prepareToPlay];
     [player play];
+    NSLog(@"Do we ever get here?");
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cleanArrays" object:nil];

@@ -90,7 +90,8 @@
     if ([[p notificationsArray] count] == 0 & [[p retriggersArray] count] == 0)
     {
         [[cell statusSwitch] setOn:NO];
-    } else
+    }
+    else
     {
         [[cell statusSwitch] setOn:YES];
     }

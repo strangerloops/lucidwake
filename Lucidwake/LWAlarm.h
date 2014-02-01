@@ -22,7 +22,6 @@
 @property (nonatomic, strong) NSMutableArray *retriggersArray;
 @property (nonatomic, assign) int retriggerInterval;
 @property (nonatomic, assign) int retriggers;
-@property (nonatomic, assign) BOOL stale;
 
 - (LWAlarm *)clone;
 - (void)scheduleNotifications;

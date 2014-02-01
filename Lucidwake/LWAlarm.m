@@ -52,10 +52,12 @@
 
 - (void)receivedNotification:(NSNotification *)notification
 {
+    NSLog(@"%d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     [_notificationsArray removeObjectIdenticalTo:ln];
     [_retriggersArray removeObjectIdenticalTo:ln];
     [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
+    NSLog(@"%d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     ln = nil;
     NSLog(@"LWAlarm's notification center method called.");
 }
@@ -70,7 +72,6 @@
     [aCoder encodeObject:_retriggersArray forKey:@"retriggersArray"];
     [aCoder encodeInt:_retriggerInterval forKey:@"retriggerInterval"];
     [aCoder encodeInt:_retriggers forKey:@"retriggers"];
-    [aCoder encodeBool:_stale forKey:@"stale"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -86,7 +87,6 @@
         [self setRetriggersArray:[aDecoder decodeObjectForKey:@"retriggersArray"]];
         [self setRetriggerInterval:[aDecoder decodeIntForKey:@"retriggerInterval"]];
         [self setRetriggers:[aDecoder decodeIntForKey:@"retriggers"]];
-        [self setStale:[aDecoder decodeBoolForKey:@"stale"]];
     }
     return self;
 }
@@ -148,10 +148,10 @@
         UILocalNotification *ln = [_notificationsArray objectAtIndex:i];
         if (_retriggers > 0)
         {
-            for (int i = 0; i < _retriggers; i++)
+            for (int j = 0; j < _retriggers; j++)
             {
                 NSDateComponents *retriggerComponent = [[NSDateComponents alloc] init];
-                [retriggerComponent setMinute:(_retriggerInterval * (i + 1))];
+                [retriggerComponent setMinute:(_retriggerInterval * (j + 1))];
                 NSDate *retriggerDate = [cal dateByAddingComponents:retriggerComponent toDate:[ln fireDate] options:0];
                 UILocalNotification *r = [[UILocalNotification alloc] init];
                 [r setFireDate:retriggerDate];
