@@ -25,6 +25,5 @@
 
 - (LWAlarm *)clone;
 - (void)scheduleNotifications;
-- (void)unscheduleNotifications;
 
 @end

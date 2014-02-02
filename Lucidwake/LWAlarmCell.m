@@ -9,6 +9,7 @@
 #import "LWAlarmCell.h"
 #import "LWAlarm.h"
 #import "LWAlarmStore.h"
+#import "LWTemporallyOrderedNotifications.h"
 
 @implementation LWAlarmCell
 
@@ -23,7 +24,7 @@
     }
     else
     {
-        [alarm unscheduleNotifications];
+        [[LWTemporallyOrderedNotifications sharedStore] unscheduleNotificationsForAlarm:alarm];
     }
 }
 

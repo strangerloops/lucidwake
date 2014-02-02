@@ -75,7 +75,7 @@
 
 - (void)removeAlarm:(LWAlarm *)p
 {
-    [p unscheduleNotifications];
+    [[LWTemporallyOrderedNotifications sharedStore] unscheduleNotificationsForAlarm:p];
     [allAlarms removeObjectIdenticalTo:p];
 }
 

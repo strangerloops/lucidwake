@@ -66,6 +66,7 @@
 		AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02E418761E2900996297 /* LWAlarmCell.xib */; };
 		AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADA02E9187799DF00996297 /* LWSetLabelViewController.m */; };
 		AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */; };
+		AAE8D49D189D9E49009B68DF /* LWAlarmNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE8D49C189D9E49009B68DF /* LWAlarmNotification.m */; };
 		AAF1C55318876EFF00D33FEE /* up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C55218876EFF00D33FEE /* up.jpg */; };
 		AAF1C5561891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */; };
 		AAF1C5581896E54000D33FEE /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = AAF1C5571896E54000D33FEE /* silence.wav */; };
@@ -158,6 +159,8 @@
 		AADA02E8187799DF00996297 /* LWSetLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetLabelViewController.h; sourceTree = "<group>"; };
 		AADA02E9187799DF00996297 /* LWSetLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetLabelViewController.m; sourceTree = "<group>"; };
 		AADA02EB18779A5500996297 /* LWSetLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWSetLabelViewController.xib; sourceTree = "<group>"; };
+		AAE8D49B189D9E49009B68DF /* LWAlarmNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWAlarmNotification.h; path = Ringtones/LWAlarmNotification.h; sourceTree = "<group>"; };
+		AAE8D49C189D9E49009B68DF /* LWAlarmNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWAlarmNotification.m; path = Ringtones/LWAlarmNotification.m; sourceTree = "<group>"; };
 		AAF1C55218876EFF00D33FEE /* up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = up.jpg; sourceTree = "<group>"; };
 		AAF1C5541891CAAD00D33FEE /* LWTemporallyOrderedNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTemporallyOrderedNotifications.h; sourceTree = "<group>"; };
 		AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTemporallyOrderedNotifications.m; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				AADA0287187138BB00996297 /* LWAlarmStore.m */,
 				AADA02891871391100996297 /* LWAlarm.h */,
 				AADA028A1871391100996297 /* LWAlarm.m */,
+				AAE8D49B189D9E49009B68DF /* LWAlarmNotification.h */,
+				AAE8D49C189D9E49009B68DF /* LWAlarmNotification.m */,
 				AAF1C5541891CAAD00D33FEE /* LWTemporallyOrderedNotifications.h */,
 				AAF1C5551891CAAD00D33FEE /* LWTemporallyOrderedNotifications.m */,
 			);
@@ -513,6 +518,7 @@
 				AADA028B1871391100996297 /* LWAlarm.m in Sources */,
 				AADA02E318761D7E00996297 /* LWAlarmCell.m in Sources */,
 				AA239AD71879F9BB005590D4 /* LWRecording.m in Sources */,
+				AAE8D49D189D9E49009B68DF /* LWAlarmNotification.m in Sources */,
 				AADA02EA187799DF00996297 /* LWSetLabelViewController.m in Sources */,
 				AA239B2618863741005590D4 /* LWSetSoundViewController.m in Sources */,
 				AA239ADD187A453F005590D4 /* LWRecordingCell.m in Sources */,

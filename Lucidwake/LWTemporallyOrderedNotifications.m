@@ -7,6 +7,8 @@
 //
 
 #import "LWTemporallyOrderedNotifications.h"
+#import "LWAlarmNotification.h"
+#import "LWAlarm.h"
 
 @implementation LWTemporallyOrderedNotifications
 
@@ -45,17 +47,18 @@
     return allNotifications;
 }
 
-- (void)addNotification:(UILocalNotification *)p
+- (void)addNotification:(LWAlarmNotification *)p
 {
     if ([allNotifications count] == 0)
     {
         [allNotifications addObject:p];
-    } else
+    }
+    else
     {
         BOOL added = false;
         for (int i = 0; i < [allNotifications count]; i++)
         {
-            UILocalNotification *q = [allNotifications objectAtIndex:i];
+            LWAlarmNotification *q = [allNotifications objectAtIndex:i];
             if ([[p fireDate] compare:[q fireDate]] == NSOrderedAscending)
             {
                 [allNotifications insertObject:p atIndex:i];
@@ -70,9 +73,21 @@
     }
 }
 
-- (void)removeNotification:(UILocalNotification *)p
+- (void)removeNotification:(LWAlarmNotification *)p
 {
     [allNotifications removeObjectIdenticalTo:p];
+}
+
+- (void)unscheduleNotificationsForAlarm:(LWAlarm *)p
+{
+    for (int i = 0; i < [allNotifications count]; i++)
+    {
+        LWAlarmNotification *an = [allNotifications objectAtIndex:i];
+        if (![an alarm] || [an alarm] == p)
+        {
+            [self removeNotification:an];
+        }
+    }
 }
 
 - (NSString *)archivePath
@@ -87,6 +102,5 @@
     NSString *path = [self archivePath];
     return [NSKeyedArchiver archiveRootObject:allNotifications toFile:path];
 }
-
 
 @end

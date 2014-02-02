@@ -9,6 +9,7 @@
 #import "LWAlarm.h"
 #import "LWAlarmStore.h"
 #import "LWTemporallyOrderedNotifications.h"
+#import "LWAlarmNotification.h"
 
 @implementation LWAlarm
 
@@ -24,7 +25,6 @@
     }
     [self setNotificationsArray:[[NSMutableArray alloc] init]];
     [self setRetriggersArray:[[NSMutableArray alloc] init]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotification:) name:@"cleanArrays" object:nil];
     return self;
 }
 
@@ -48,18 +48,6 @@
     [c setRetriggerInterval:[self retriggerInterval]];
     [c setRetriggers:[self retriggers]];
     return c;
-}
-
-- (void)receivedNotification:(NSNotification *)notification
-{
-    NSLog(@"%d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
-    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
-    [_notificationsArray removeObjectIdenticalTo:ln];
-    [_retriggersArray removeObjectIdenticalTo:ln];
-    [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
-    NSLog(@"%d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
-    ln = nil;
-    NSLog(@"LWAlarm's notification center method called.");
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -104,7 +92,7 @@
     {
         [thisInstantComponents setDay:[thisInstantComponents day] + 1];
         scheduledDate = [cal dateFromComponents:thisInstantComponents];
-    }    
+    }
     for (int i = 0; i < [_weekly count]; i++)
     {
         NSNumber *n = [_weekly objectAtIndex:i];
@@ -120,65 +108,22 @@
             NSDateComponents *repeatComponent = [[NSDateComponents alloc] init];
             [repeatComponent setDay:dayDifference];
             NSDate *repeatDate = [cal dateByAddingComponents:repeatComponent toDate:scheduledDate options:0];
-            UILocalNotification *ln = [[UILocalNotification alloc] init];
-            [ln setFireDate:repeatDate];
-            [ln setAlertBody:_name];
-            [ln setRepeatInterval:NSWeekCalendarUnit];
-            [ln setSoundName:_sound];
-            [_notificationsArray addObject:ln];
-            [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
-            [[UIApplication sharedApplication] scheduleLocalNotification:ln];
-            NSLog(@"Scheduled notification for %@", [ln fireDate]);
+            
+            LWAlarmNotification *an = [[LWAlarmNotification alloc] init];
+            [an setFireDate:repeatDate];
+            [an setAlarm:self];
+            [[LWTemporallyOrderedNotifications sharedStore] addNotification:an];
+            NSLog(@"Scheduled notification for %@", [an fireDate]);
             scheduled = true;
         }
     }
     if (!scheduled)
     {
-        UILocalNotification *ln = [[UILocalNotification alloc] init];
-        [ln setFireDate:scheduledDate];
-        [ln setAlertBody:_name];
-        [ln setSoundName:_sound];
-        [_notificationsArray addObject:ln];
-        [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
-        [[UIApplication sharedApplication] scheduleLocalNotification:ln];
-        NSLog(@"Scheduled notification for %@", [ln fireDate]);
-    }
-    for (int i = 0; i < [_notificationsArray count]; i++)
-    {
-        UILocalNotification *ln = [_notificationsArray objectAtIndex:i];
-        if (_retriggers > 0)
-        {
-            for (int j = 0; j < _retriggers; j++)
-            {
-                NSDateComponents *retriggerComponent = [[NSDateComponents alloc] init];
-                [retriggerComponent setMinute:(_retriggerInterval * (j + 1))];
-                NSDate *retriggerDate = [cal dateByAddingComponents:retriggerComponent toDate:[ln fireDate] options:0];
-                UILocalNotification *r = [[UILocalNotification alloc] init];
-                [r setFireDate:retriggerDate];
-                [r setAlertBody:[ln alertBody]];
-                [r setSoundName:_sound];
-                [_retriggersArray addObject:r];
-                [[LWTemporallyOrderedNotifications sharedStore] addNotification:ln];
-                [[UIApplication sharedApplication] scheduleLocalNotification:r];
-                NSLog(@"Scheduled notification for %@", [r fireDate]);
-            }
-        }
-    }
-}
-
-- (void)unscheduleNotifications
-{
-    while ([_notificationsArray count] > 0)
-    {
-        UILocalNotification *ln = [_notificationsArray objectAtIndex:0];
-        [_notificationsArray removeObjectAtIndex:0];
-        [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
-    }
-    while ([_retriggersArray count] > 0)
-    {
-        UILocalNotification *ln = [_retriggersArray objectAtIndex:0];
-        [_retriggersArray removeObjectAtIndex:0];
-        [[LWTemporallyOrderedNotifications sharedStore] removeNotification:ln];
+        LWAlarmNotification *an = [[LWAlarmNotification alloc] init];
+        [an setFireDate:scheduledDate];
+        [an setAlarm:self];
+        [[LWTemporallyOrderedNotifications sharedStore] addNotification:an];
+        NSLog(@"Scheduled notification for %@", [an fireDate]);
     }
 }
 

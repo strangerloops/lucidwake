@@ -11,6 +11,8 @@
 #import "LWAlarmStore.h"
 #import "LWAlarm.h"
 #import "LWAlarmCell.h"
+#import "LWTemporallyOrderedNotifications.h"
+#import "LWAlarmNotification.h"
 
 @implementation LWAlarmViewController
 
@@ -87,7 +89,17 @@
     [[cell nameLabel] setText:[p name]];
     [cell setIndex:[indexPath row]];
     [[cell statusSwitch] setHidden:NO];
-    if ([[p notificationsArray] count] == 0 & [[p retriggersArray] count] == 0)
+    
+    BOOL hasNotification;
+    for (LWAlarmNotification *an in [[LWTemporallyOrderedNotifications sharedStore] allNotifications])
+    {
+        if ([an alarm] == p)
+        {
+            hasNotification = true;
+            break;
+        }
+    }
+    if (!hasNotification)
     {
         [[cell statusSwitch] setOn:NO];
     }
@@ -95,7 +107,6 @@
     {
         [[cell statusSwitch] setOn:YES];
     }
-    NSLog(@"%lu %lu", (unsigned long)[[p notificationsArray] count], (unsigned long)[[p retriggersArray] count]);
     return cell;
 }
 

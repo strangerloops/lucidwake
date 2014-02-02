@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class LWAlarmNotification, LWAlarm;
+
 @interface LWTemporallyOrderedNotifications : NSObject
 
 {
@@ -16,8 +18,9 @@
 
 + (LWTemporallyOrderedNotifications *)sharedStore;
 - (NSArray *)allNotifications;
-- (void)addNotification:(UILocalNotification *)p;
-- (void)removeNotification:(UILocalNotification *)p;
+- (void)addNotification:(LWAlarmNotification *)p;
+- (void)removeNotification:(LWAlarmNotification *)p;
+- (void)unscheduleNotificationsForAlarm:(LWAlarm *)p;
 - (NSString *)archivePath;
 - (BOOL)saveChanges;
 

@@ -11,6 +11,8 @@
 #import "LWRecordingsViewController.h"
 #import "LWTemporallyOrderedNotifications.h"
 #import "LWAlarmStore.h"
+#import "LWAlarm.h"
+#import "LWAlarmNotification.h"
 #import "LWRecordingStore.h"
 
 @implementation LWAppDelegate
@@ -80,7 +82,8 @@
         }];
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
-        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Apex" ofType:@".m4r"];
+  //    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
         NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
   //    [player setNumberOfLoops:-1];
@@ -104,14 +107,12 @@
 
 - (void)playAlarm
 {
+    LWAlarmNotification *alarmNotification = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     NSLog(@"playAlarm method called");
     [silenceTimer invalidate];
     silenceTimer = nil;
     [player stop];
-    UILocalNotification *ln = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
-    NSString *sound = [ln soundName];
-    [ln setSoundName:nil];
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:sound ofType:@".m4r"];
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:[[alarmNotification alarm] sound] ofType:@".m4r"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
     [player setNumberOfLoops:-1];
@@ -122,7 +123,8 @@
     NSLog(@"Do we ever get here?");
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"cleanArrays" object:nil];
+    [alarmNotification reschedule];
+    [[LWTemporallyOrderedNotifications sharedStore] removeNotification:alarmNotification];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
