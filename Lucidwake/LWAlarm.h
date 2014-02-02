@@ -18,8 +18,6 @@
 @property (nonatomic, copy) NSString *sound;
 @property (nonatomic, strong) NSDateComponents *hourMinutes;
 @property (nonatomic, strong) NSMutableArray *weekly;
-@property (nonatomic, strong) NSMutableArray *notificationsArray;
-@property (nonatomic, strong) NSMutableArray *retriggersArray;
 @property (nonatomic, assign) int retriggerInterval;
 @property (nonatomic, assign) int retriggers;
 

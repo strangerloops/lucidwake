@@ -20,5 +20,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabControl;
 @property (strong, nonatomic) AVAudioPlayer *player;
+@property (strong, nonatomic) AVQueuePlayer *queuePlayer;
 
 @end

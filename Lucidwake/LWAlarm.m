@@ -23,8 +23,6 @@
     {
         [_weekly addObject:[NSNumber numberWithInt:0]];
     }
-    [self setNotificationsArray:[[NSMutableArray alloc] init]];
-    [self setRetriggersArray:[[NSMutableArray alloc] init]];
     return self;
 }
 
@@ -43,8 +41,6 @@
         NSNumber *n = [NSNumber numberWithInt:[[[self weekly] objectAtIndex:i] intValue]];
         [w addObject:n];
     }
-    [c setNotificationsArray:[[NSMutableArray alloc] init]];
-    [c setRetriggersArray:[[NSMutableArray alloc] init]];
     [c setRetriggerInterval:[self retriggerInterval]];
     [c setRetriggers:[self retriggers]];
     return c;
@@ -56,8 +52,6 @@
     [aCoder encodeObject:_sound forKey:@"sound"];
     [aCoder encodeObject:_hourMinutes forKey:@"hourMinutes"];
     [aCoder encodeObject:_weekly forKey:@"weekly"];
-    [aCoder encodeObject:_notificationsArray forKey:@"notificationsArray"];
-    [aCoder encodeObject:_retriggersArray forKey:@"retriggersArray"];
     [aCoder encodeInt:_retriggerInterval forKey:@"retriggerInterval"];
     [aCoder encodeInt:_retriggers forKey:@"retriggers"];
 }
@@ -71,8 +65,6 @@
         [self setSound:[aDecoder decodeObjectForKey:@"sound"]];
         [self setHourMinutes:[aDecoder decodeObjectForKey:@"hourMinutes"]];
         [self setWeekly:[aDecoder decodeObjectForKey:@"weekly"]];
-        [self setNotificationsArray:[aDecoder decodeObjectForKey:@"notificationsArray"]];
-        [self setRetriggersArray:[aDecoder decodeObjectForKey:@"retriggersArray"]];
         [self setRetriggerInterval:[aDecoder decodeIntForKey:@"retriggerInterval"]];
         [self setRetriggers:[aDecoder decodeIntForKey:@"retriggers"]];
     }

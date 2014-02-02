@@ -74,7 +74,6 @@
     }
     if ([[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count] > 0)
     {
-        NSLog(@"willResignActive if block called");
         UIApplication *app = [UIApplication sharedApplication];
         UIBackgroundTaskIdentifier bgTask = 0;
         bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
@@ -82,15 +81,15 @@
         }];
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
-        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"Apex" ofType:@".m4r"];
-  //    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
         NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+        
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
-  //    [player setNumberOfLoops:-1];
-        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
+        
+        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
         NSDate *rightNow = [NSDate date];
         NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
-        alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(playAlarm) userInfo:nil repeats:NO];
+        alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(triggerAlarm) userInfo:nil repeats:NO];
         [player prepareToPlay];
         [player play];
     }
@@ -105,8 +104,14 @@
     [player play];
 }
 
+- (void)triggerAlarm
+{
+    [self performSelectorOnMainThread:@selector(playAlarm) withObject:Nil waitUntilDone:YES];
+}
+
 - (void)playAlarm
 {
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     LWAlarmNotification *alarmNotification = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     NSLog(@"playAlarm method called");
     [silenceTimer invalidate];
@@ -118,9 +123,11 @@
     [player setNumberOfLoops:-1];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    [player prepareToPlay];
     [player play];
-    NSLog(@"Do we ever get here?");
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    [localNotification setAlertBody:[[alarmNotification alarm] name]];
+    [localNotification setFireDate:[NSDate date]];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
     [alarmNotification reschedule];

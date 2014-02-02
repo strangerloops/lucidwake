@@ -90,22 +90,24 @@
     [cell setIndex:[indexPath row]];
     [[cell statusSwitch] setHidden:NO];
     
-    BOOL hasNotification;
-    for (LWAlarmNotification *an in [[LWTemporallyOrderedNotifications sharedStore] allNotifications])
+    BOOL hasNotification = false;
+    
+    for (int i = 0; i < [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]; i++)
     {
+        LWAlarmNotification *an = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:i];
         if ([an alarm] == p)
         {
             hasNotification = true;
             break;
         }
-    }
-    if (!hasNotification)
-    {
-        [[cell statusSwitch] setOn:NO];
-    }
-    else
-    {
-        [[cell statusSwitch] setOn:YES];
+        if (hasNotification)
+        {
+            [[cell statusSwitch] setOn:YES];
+        }
+        else
+        {
+            [[cell statusSwitch] setOn:NO];
+        }
     }
     return cell;
 }
