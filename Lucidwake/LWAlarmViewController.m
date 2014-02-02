@@ -100,14 +100,14 @@
             hasNotification = true;
             break;
         }
-        if (hasNotification)
-        {
-            [[cell statusSwitch] setOn:YES];
-        }
-        else
-        {
-            [[cell statusSwitch] setOn:NO];
-        }
+    }
+    if (hasNotification)
+    {
+        [[cell statusSwitch] setOn:YES];
+    }
+    else
+    {
+        [[cell statusSwitch] setOn:NO];
     }
     return cell;
 }

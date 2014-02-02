@@ -80,7 +80,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LabelValueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LabelValueCell"];
-    NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Retrigger", nil];
+    NSArray *titles = [NSArray arrayWithObjects:@"Name", @"Sound", @"Repeat", @"Snooze", nil];
     NSArray *weekdays = [NSArray arrayWithObjects:@" Su", @" M", @" Tu", @" W", @" Th", @" F", @" Sa", nil];
     NSString *repeatLabel = [NSString stringWithFormat:@""];
     for (int i = 0; i < [[alarm weekly] count]; i++)
@@ -90,7 +90,11 @@
             repeatLabel = [repeatLabel stringByAppendingString:[weekdays objectAtIndex:i]];
         }
     }
-    NSString *retriggerLabel = [NSString stringWithFormat:@"%d retriggers, %dm apart", [alarm retriggers], [alarm retriggerInterval]];
+    NSString *retriggerLabel = [NSString stringWithFormat:@""];
+    if ([alarm retriggers] > 0 && [alarm retriggerInterval] > 0)
+    {
+        retriggerLabel = [NSString stringWithFormat:@"%d snoozes, %dm apart", [alarm retriggers], [alarm retriggerInterval]];
+    }
     NSArray *values = [NSArray arrayWithObjects:[alarm name], [alarm sound], repeatLabel, retriggerLabel, nil];
     [[cell textLabel] setText:[titles objectAtIndex:[indexPath row]]];
     [[cell detailTextLabel] setText:[values objectAtIndex:[indexPath row]]];

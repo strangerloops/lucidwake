@@ -131,7 +131,9 @@
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
     [alarmNotification reschedule];
+    NSLog(@"%lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     [[LWTemporallyOrderedNotifications sharedStore] removeNotification:alarmNotification];
+    NSLog(@"%lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -141,6 +143,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [_queuePlayer pause];
     [player stop];
     [alarmTimer invalidate];
     alarmTimer = nil;
