@@ -193,7 +193,8 @@
     [cell setIndex:[indexPath row]];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM-dd-yy"];
-    [[cell nameLabel] setText:[r name]];
+    [[cell nameField] setText:[r name]];
+    [[cell nameField] setDelegate:cell];
     [[cell dateLabel] setText:[df stringFromDate:[r date]]];
     [cell setViewController:self];
     int ti = (int)[r length];

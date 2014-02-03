@@ -12,6 +12,25 @@
 
 @implementation LWRecordingCell
 
+//- (id)init
+//{
+//    self = [super init];
+//    if (self)
+//    {
+//        [_nameField setDelegate:self];
+//    }
+//    return self;
+//}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"text field delegate method called");
+    LWRecording *recording = [[[LWRecordingStore sharedStore] allRecordings] objectAtIndex:_index];
+    [textField resignFirstResponder];
+    [recording setName:[textField text]];
+    return NO;
+}
+
 - (void)playRecording:(id)sender
 {
     if (![_player isPlaying])

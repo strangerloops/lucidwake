@@ -43,6 +43,10 @@
 		AA239B1F188635D6005590D4 /* Uplift.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B04188635D6005590D4 /* Uplift.m4r */; };
 		AA239B20188635D6005590D4 /* Waves.m4r in Resources */ = {isa = PBXBuildFile; fileRef = AA239B05188635D6005590D4 /* Waves.m4r */; };
 		AA239B2618863741005590D4 /* LWSetSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA239B2518863741005590D4 /* LWSetSoundViewController.m */; };
+		AAC67FD518A05221008F2527 /* 11-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD418A05221008F2527 /* 11-clock@2x.png */; };
+		AAC67FD718A05262008F2527 /* 159-voicemail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD618A05262008F2527 /* 159-voicemail@2x.png */; };
+		AAC67FD918A05329008F2527 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD818A05329008F2527 /* 11-clock.png */; };
+		AAC67FDB18A05334008F2527 /* 159-voicemail.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FDA18A05334008F2527 /* 159-voicemail.png */; };
 		AADA01F2186BA9D400996297 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F1186BA9D400996297 /* Foundation.framework */; };
 		AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F3186BA9D400996297 /* CoreGraphics.framework */; };
 		AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADA01F5186BA9D400996297 /* UIKit.framework */; };
@@ -125,6 +129,10 @@
 		AA239B05188635D6005590D4 /* Waves.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Waves.m4r; sourceTree = "<group>"; };
 		AA239B2418863741005590D4 /* LWSetSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWSetSoundViewController.h; sourceTree = "<group>"; };
 		AA239B2518863741005590D4 /* LWSetSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWSetSoundViewController.m; sourceTree = "<group>"; };
+		AAC67FD418A05221008F2527 /* 11-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock@2x.png"; sourceTree = "<group>"; };
+		AAC67FD618A05262008F2527 /* 159-voicemail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "159-voicemail@2x.png"; sourceTree = "<group>"; };
+		AAC67FD818A05329008F2527 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		AAC67FDA18A05334008F2527 /* 159-voicemail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "159-voicemail.png"; sourceTree = "<group>"; };
 		AADA01EE186BA9D400996297 /* Lucidwake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucidwake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADA01F1186BA9D400996297 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AADA01F3186BA9D400996297 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -380,6 +388,10 @@
 			isa = PBXGroup;
 			children = (
 				AAF1C55218876EFF00D33FEE /* up.jpg */,
+				AAC67FD418A05221008F2527 /* 11-clock@2x.png */,
+				AAC67FD618A05262008F2527 /* 159-voicemail@2x.png */,
+				AAC67FD818A05329008F2527 /* 11-clock.png */,
+				AAC67FDA18A05334008F2527 /* 159-voicemail.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -461,15 +473,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AADA01FC186BA9D400996297 /* InfoPlist.strings in Resources */,
+				AAC67FD518A05221008F2527 /* 11-clock@2x.png in Resources */,
 				AA239B0E188635D6005590D4 /* Crystals.m4r in Resources */,
 				AA239B11188635D6005590D4 /* Night Owl.m4r in Resources */,
 				AA239B0A188635D6005590D4 /* Chimes.m4r in Resources */,
+				AAC67FD718A05262008F2527 /* 159-voicemail@2x.png in Resources */,
 				AA239ADF187A4583005590D4 /* LWRecordingCell.xib in Resources */,
 				AADA02EC18779A5500996297 /* LWSetLabelViewController.xib in Resources */,
 				AA239B1B188635D6005590D4 /* Slow Rise.m4r in Resources */,
 				AA239B18188635D6005590D4 /* Sencha.m4r in Resources */,
 				AA239B20188635D6005590D4 /* Waves.m4r in Resources */,
 				AA239B07188635D6005590D4 /* Beacon.m4r in Resources */,
+				AAC67FDB18A05334008F2527 /* 159-voicemail.png in Resources */,
 				AA239B1C188635D6005590D4 /* Stargaze.m4r in Resources */,
 				AA239B1D188635D6005590D4 /* Summit.m4r in Resources */,
 				AA239B0B188635D6005590D4 /* Circuit.m4r in Resources */,
@@ -492,6 +507,7 @@
 				AA239B15188635D6005590D4 /* Radar.m4r in Resources */,
 				AA239B16188635D6005590D4 /* Radiate.m4r in Resources */,
 				AA239B12188635D6005590D4 /* Opening.m4r in Resources */,
+				AAC67FD918A05329008F2527 /* 11-clock.png in Resources */,
 				AA239B17188635D6005590D4 /* Ripples.m4r in Resources */,
 				AADA02E518761E2900996297 /* LWAlarmCell.xib in Resources */,
 				AA239B1E188635D6005590D4 /* Twinkle.m4r in Resources */,

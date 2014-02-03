@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface LWRecordingCell : UITableViewCell <AVAudioPlayerDelegate>
+@interface LWRecordingCell : UITableViewCell <AVAudioPlayerDelegate, UITextFieldDelegate>
 
 {
     IBOutlet UIButton *audioButton;
@@ -17,7 +17,7 @@
 
 @property (assign, nonatomic) int index;
 @property (strong, nonatomic) AVAudioPlayer *player;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;

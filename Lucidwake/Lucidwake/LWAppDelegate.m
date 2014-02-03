@@ -31,8 +31,10 @@
     
     UITabBarItem *tbi = [alarmController tabBarItem];
     [tbi setTitle:@"Alarms"];
+    [tbi setImage:[UIImage imageNamed:@"11-clock.png"]];
     UITabBarItem *tbii = [recordingController tabBarItem];
     [tbii setTitle:@"Recordings"];
+    [tbii setImage:[UIImage imageNamed:@"159-voicemail.png"]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     NSArray *viewControllers = [NSArray arrayWithObjects:alarmController, recordingController, nil];
