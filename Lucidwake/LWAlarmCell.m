@@ -9,6 +9,7 @@
 #import "LWAlarmCell.h"
 #import "LWAlarm.h"
 #import "LWAlarmStore.h"
+#import "LWAlarmNotification.h"
 #import "LWTemporallyOrderedNotifications.h"
 
 @implementation LWAlarmCell
@@ -40,6 +41,20 @@
     {
         [statusSwitch setHidden:NO];
     }
+}
+
+- (IBAction)clearSnooze:(id)sender
+{
+    LWAlarm *p = [[[LWAlarmStore sharedStore] allAlarms] objectAtIndex:_index];
+    for (int i = 0; i < [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]; i++)
+    {
+        LWAlarmNotification *an = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:i];
+        if (([an alarm] == p || ![an alarm]) && [an snooze])
+        {
+            [[LWTemporallyOrderedNotifications sharedStore] removeNotification:an];
+        }
+    }
+    [_clearSnoozeButton setHidden:YES];
 }
 
 @end

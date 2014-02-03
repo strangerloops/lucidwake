@@ -13,7 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ampmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *clearSnoozeButton;
 @property (strong, nonatomic) IBOutlet UISwitch *statusSwitch;
 @property (assign) int index;
+
+- (IBAction)clearSnooze:(id)sender;
 
 @end

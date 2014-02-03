@@ -91,6 +91,7 @@
     [[cell statusSwitch] setHidden:NO];
     
     BOOL hasNotification = false;
+    BOOL hasSnooze = false;
     
     for (int i = 0; i < [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]; i++)
     {
@@ -98,7 +99,11 @@
         if ([an alarm] == p)
         {
             hasNotification = true;
-            break;
+            if ([an snooze])
+            {
+                hasSnooze = true;
+                break;
+            }
         }
     }
     if (hasNotification)
@@ -108,6 +113,14 @@
     else
     {
         [[cell statusSwitch] setOn:NO];
+    }
+    if (hasSnooze)
+    {
+        [[cell clearSnoozeButton] setHidden:NO];
+    }
+    else
+    {
+        [[cell clearSnoozeButton] setHidden:YES];
     }
     return cell;
 }

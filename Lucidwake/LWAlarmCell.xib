@@ -4,7 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWAlarmCell"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LWAlarmCell">
+            <connections>
+                <outlet property="clearSnoozeButton" destination="E2B-BO-1Rg" id="nkc-M4-Fao"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="0BR-Q9-ND4" customClass="LWAlarmCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
@@ -38,6 +42,16 @@
                             <action selector="statusSwitch:" destination="0BR-Q9-ND4" eventType="valueChanged" id="p89-C6-eJ1"/>
                         </connections>
                     </switch>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E2B-BO-1Rg">
+                        <rect key="frame" x="237" y="55" width="76" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="s">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="clearSnooze:" destination="0BR-Q9-ND4" eventType="touchUpInside" id="ngY-82-lrM"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
