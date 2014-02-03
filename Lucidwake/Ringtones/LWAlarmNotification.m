@@ -14,13 +14,14 @@
 
 - (void)reschedule
 {
+    NSLog(@"Before rescheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     if (!_snooze)
     {
         NSCalendar *cal = [NSCalendar currentCalendar];
         NSDate *rightNow = [NSDate date];
         NSDateComponents *weekdayComponents = [cal components:NSWeekdayCalendarUnit fromDate:rightNow];
         int todayWeekday = [weekdayComponents weekday];
-        if ([[[_alarm weekly] objectAtIndex:(todayWeekday - 1)] intValue] == 1 )
+        if ([[[_alarm weekly] objectAtIndex:(todayWeekday - 1)] intValue] == 1)
         {
             NSDateComponents *repeatComponent = [[NSDateComponents alloc] init];
             [repeatComponent setDay:7];
@@ -29,7 +30,6 @@
             [an setFireDate:rescheduleDate];
             [an setAlarm:_alarm];
             [[LWTemporallyOrderedNotifications sharedStore] addNotification:an];
-            NSLog(@"Scheduled notification for %@", [an fireDate]);
         }
         if ([_alarm retriggers] > 0 && [_alarm retriggerInterval] > 0)
         {
@@ -41,11 +41,12 @@
                 LWAlarmNotification *rn = [[LWAlarmNotification alloc] init];
                 [rn setFireDate:retriggerDate];
                 [rn setAlarm:_alarm];
+                [rn setSnooze:true];
                 [[LWTemporallyOrderedNotifications sharedStore] addNotification:rn];
-                NSLog(@"Scheduled notification for %@", [rn fireDate]);
             }
         }
     }
+    NSLog(@"After rescheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

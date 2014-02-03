@@ -97,7 +97,6 @@
 
 - (void)playSilence
 {
-    NSLog(@"playSilence method called.");
     [player stop];
     [player setCurrentTime:0];
     [player prepareToPlay];
@@ -113,7 +112,6 @@
 {
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     LWAlarmNotification *alarmNotification = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
-    NSLog(@"playAlarm method called");
     [silenceTimer invalidate];
     silenceTimer = nil;
     [player stop];
@@ -131,9 +129,7 @@
     shouldPresentMicrophone = true;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"startRecording" object:nil];
     [alarmNotification reschedule];
-    NSLog(@"%lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     [[LWTemporallyOrderedNotifications sharedStore] removeNotification:alarmNotification];
-    NSLog(@"%lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

@@ -75,8 +75,10 @@
 
 - (void)removeAlarm:(LWAlarm *)p
 {
+    NSLog(@"Before deleting alarm: %d", [[[LWAlarmStore sharedStore] allAlarms] count]);
     [[LWTemporallyOrderedNotifications sharedStore] unscheduleNotificationsForAlarm:p];
     [allAlarms removeObjectIdenticalTo:p];
+    NSLog(@"After deleting alarm: %d", [[[LWAlarmStore sharedStore] allAlarms] count]);
 }
 
 - (NSString *)archivePath

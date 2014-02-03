@@ -13,6 +13,7 @@
 #import "LWSetWeeklyViewController.h"
 #import "LWSetRetriggerViewController.h"
 #import "LWSetSoundViewController.h"
+#import "LWTemporallyOrderedNotifications.h"
 
 @interface LabelValueCell : UITableViewCell
 @end
@@ -145,6 +146,7 @@
 {
     if (_alarmBackup)
     {
+        [[LWTemporallyOrderedNotifications sharedStore] relocateNotificationsFromAlarm:alarm toAlarm:_alarmBackup];
         [[LWAlarmStore sharedStore] removeAlarm:alarm];
         [[LWAlarmStore sharedStore] addAlarm:_alarmBackup];
     }

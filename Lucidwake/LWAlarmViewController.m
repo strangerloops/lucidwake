@@ -93,9 +93,8 @@
     BOOL hasNotification = false;
     BOOL hasSnooze = false;
     
-    for (int i = 0; i < [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]; i++)
+    for (LWAlarmNotification *an in [[LWTemporallyOrderedNotifications sharedStore] allNotifications])
     {
-        LWAlarmNotification *an = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:i];
         if ([an alarm] == p)
         {
             hasNotification = true;

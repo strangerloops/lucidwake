@@ -75,17 +75,34 @@
 
 - (void)removeNotification:(LWAlarmNotification *)p
 {
+    NSLog(@"Temporally ordered array removeNotification method called, %d before removing", [allNotifications count]);
     [allNotifications removeObjectIdenticalTo:p];
+    NSLog(@"%d after removing", [allNotifications count]);
 }
 
 - (void)unscheduleNotificationsForAlarm:(LWAlarm *)p
 {
-    for (int i = 0; i < [allNotifications count]; i++)
+    NSMutableArray *toDelete = [[NSMutableArray alloc] init];
+    for (LWAlarmNotification *an in allNotifications)
     {
-        LWAlarmNotification *an = [allNotifications objectAtIndex:i];
         if (![an alarm] || [an alarm] == p)
         {
-            [self removeNotification:an];
+            [toDelete addObject:an];
+        }
+    }
+    for (LWAlarmNotification *an in toDelete)
+    {
+        [self removeNotification:an];
+    }
+}
+
+- (void)relocateNotificationsFromAlarm:(LWAlarm *)p toAlarm:(LWAlarm *)q
+{
+    for (LWAlarmNotification *an in allNotifications)
+    {
+        if ([an alarm] == p)
+        {
+            [an setAlarm:q];
         }
     }
 }

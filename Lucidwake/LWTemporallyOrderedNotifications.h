@@ -21,6 +21,7 @@
 - (void)addNotification:(LWAlarmNotification *)p;
 - (void)removeNotification:(LWAlarmNotification *)p;
 - (void)unscheduleNotificationsForAlarm:(LWAlarm *)p;
+- (void)relocateNotificationsFromAlarm:(LWAlarm *)p toAlarm:(LWAlarm *)q;
 - (NSString *)archivePath;
 - (BOOL)saveChanges;
 
