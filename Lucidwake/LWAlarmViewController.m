@@ -86,7 +86,18 @@
     [[cell timeLabel] setText:[dateFormatter stringFromDate:displayDate]];
     [dateFormatter setDateFormat:@"a"];
     [[cell ampmLabel] setText:[dateFormatter stringFromDate:displayDate]];
-    [[cell nameLabel] setText:[p name]];
+    NSString *nameLabelText = [NSString stringWithFormat:[p name]];
+    NSArray *weekdays = [NSArray arrayWithObjects:@" Su", @" M", @" Tu", @" W", @" Th", @" F", @" Sa", nil];
+    NSString *repeatLabel = [NSString stringWithFormat:@""];
+    for (int i = 0; i < [[p weekly] count]; i++)
+    {
+        if ([[[p weekly] objectAtIndex:i] intValue] == 1)
+        {
+            repeatLabel = [repeatLabel stringByAppendingString:[weekdays objectAtIndex:i]];
+        }
+    }
+    nameLabelText = [nameLabelText stringByAppendingString:repeatLabel];
+    [[cell nameLabel] setText:nameLabelText];
     [cell setIndex:[indexPath row]];
     [[cell statusSwitch] setHidden:NO];
     

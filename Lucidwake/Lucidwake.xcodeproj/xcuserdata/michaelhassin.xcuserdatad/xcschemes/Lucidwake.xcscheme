@@ -87,10 +87,11 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Lucidwake"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
