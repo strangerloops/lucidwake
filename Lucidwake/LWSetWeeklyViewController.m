@@ -30,7 +30,8 @@
     if ([[[_alarm weekly] objectAtIndex:[indexPath row]] intValue] == 0)
     {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
-    } else
+    }
+    else
     {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }

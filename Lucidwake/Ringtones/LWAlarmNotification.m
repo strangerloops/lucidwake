@@ -14,7 +14,6 @@
 
 - (void)reschedule
 {
-    NSLog(@"Before rescheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     if (!_snooze)
     {
         NSCalendar *cal = [NSCalendar currentCalendar];
@@ -46,7 +45,6 @@
             }
         }
     }
-    NSLog(@"After rescheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder

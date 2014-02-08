@@ -31,10 +31,10 @@
     
     UITabBarItem *tbi = [alarmController tabBarItem];
     [tbi setTitle:@"Alarms"];
-    [tbi setImage:[UIImage imageNamed:@"11-clock.png"]];
+    [tbi setImage:[UIImage imageNamed:@"alarm.png"]];
     UITabBarItem *tbii = [recordingController tabBarItem];
     [tbii setTitle:@"Recordings"];
-    [tbii setImage:[UIImage imageNamed:@"159-voicemail.png"]];
+    [tbii setImage:[UIImage imageNamed:@"z.png"]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     NSArray *viewControllers = [NSArray arrayWithObjects:alarmController, recordingController, nil];
@@ -80,29 +80,28 @@
         UIBackgroundTaskIdentifier bgTask = 0;
         bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
             [app endBackgroundTask:bgTask];
+            [self playSilence];
         }];
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        
         NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"silence" ofType:@".wav"];
         NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
-        
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+        [player setNumberOfLoops:-1];
         
-        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
+        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
         NSDate *rightNow = [NSDate date];
         NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
         alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(triggerAlarm) userInfo:nil repeats:NO];
-        [player prepareToPlay];
-        [player play];
     }
 }
 
 - (void)playSilence
 {
-    [player stop];
-    [player setCurrentTime:0];
     [player prepareToPlay];
     [player play];
+    [player stop];
 }
 
 - (void)triggerAlarm
@@ -136,12 +135,10 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [_queuePlayer pause];
     [player stop];
     [alarmTimer invalidate];
     alarmTimer = nil;

@@ -75,9 +75,9 @@
 
 - (void)removeNotification:(LWAlarmNotification *)p
 {
-    NSLog(@"Temporally ordered array removeNotification method called, %d before removing", [allNotifications count]);
+    NSLog(@"Temporally ordered array removeNotification method called, %lu before removing", (unsigned long)[allNotifications count]);
     [allNotifications removeObjectIdenticalTo:p];
-    NSLog(@"%d after removing", [allNotifications count]);
+    NSLog(@"%lu after removing", (unsigned long)[allNotifications count]);
 }
 
 - (void)unscheduleNotificationsForAlarm:(LWAlarm *)p

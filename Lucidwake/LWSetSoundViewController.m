@@ -34,6 +34,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     [[cell textLabel] setText:[_soundFiles objectAtIndex:[indexPath row]]];
+    
+//    if ([[[cell textLabel] text] isEqualToString:[_alarm sound]])
+//    {
+//        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+//    }
+    
     return cell;
 }
 

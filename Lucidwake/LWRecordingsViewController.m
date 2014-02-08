@@ -117,7 +117,8 @@
         [_durationLabel setHidden:NO];
         [recorder record];
         [_recordButton setTitle:@"Pause" forState:UIControlStateNormal];
-    } else
+    }
+    else
     {
         [recorder pause];
         if (_timer)
@@ -166,7 +167,8 @@
     if (buttonIndex == 0)
     {
         [self setRecording:nil];
-    } else
+    }
+    else
     {
         [_recording setName:[[alertView textFieldAtIndex:0] text]];
         [[LWRecordingStore sharedStore] addRecording:_recording];

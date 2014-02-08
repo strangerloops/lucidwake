@@ -45,8 +45,15 @@
         }
         [_player setDelegate:self];
         [_player play];
-        [audioButton setTitle:@"Pause" forState:UIControlStateNormal];
-    } else
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:0.0];
+        } completion:nil];
+        [audioButton setImage:[UIImage imageNamed:@"pause.jpg"] forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:1.0];
+        } completion:nil];
+    }
+    else
     {
         [_player pause];
         if (_timer)
@@ -54,7 +61,27 @@
             [_timer invalidate];
             _timer = nil;
         }
-        [audioButton setTitle:@"Play" forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:0.0];
+        } completion:nil];
+        [audioButton setImage:[UIImage imageNamed:@"play.jpg"] forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:1.0];
+        } completion:nil];
+    }
+}
+
+- (void)willTransitionToState:(UITableViewCellStateMask)state
+{
+    [super willTransitionToState:state];
+    if (state == UITableViewCellStateEditingMask)
+    {
+        [audioButton setHidden:YES];
+        [self setEditingAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    if (state == UITableViewCellStateDefaultMask)
+    {
+        [audioButton setHidden:NO];
     }
 }
 

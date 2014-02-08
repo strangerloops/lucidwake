@@ -73,7 +73,7 @@
 
 - (void)scheduleNotifications
 {
-    NSLog(@"Before scheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
+    NSLog(@"Before scheduling: %lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
     BOOL scheduled = false;
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDate *thisInstant = [NSDate date];
@@ -116,7 +116,7 @@
         [an setAlarm:self];
         [[LWTemporallyOrderedNotifications sharedStore] addNotification:an];
     }
-    NSLog(@"After scheduling: %d", [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
+    NSLog(@"After scheduling: %lu", (unsigned long)[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] count]);
 }
 
 @end
