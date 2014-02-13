@@ -50,6 +50,7 @@
 		AA5596F818A6B4E300022DB7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5596F718A6B4E300022DB7 /* Default@2x.png */; };
 		AA58C40B18A3E13300FD5D76 /* pause.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA58C40918A3E13300FD5D76 /* pause.jpg */; };
 		AA58C40C18A3E13300FD5D76 /* play.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA58C40A18A3E13300FD5D76 /* play.jpg */; };
+		AAC30B7E18AC41450052C0B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC30B7D18AC41450052C0B7 /* AudioToolbox.framework */; };
 		AAC67FD518A05221008F2527 /* 11-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD418A05221008F2527 /* 11-clock@2x.png */; };
 		AAC67FD718A05262008F2527 /* 159-voicemail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD618A05262008F2527 /* 159-voicemail@2x.png */; };
 		AAC67FD918A05329008F2527 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC67FD818A05329008F2527 /* 11-clock.png */; };
@@ -143,6 +144,7 @@
 		AA5596F718A6B4E300022DB7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AA58C40918A3E13300FD5D76 /* pause.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pause.jpg; sourceTree = "<group>"; };
 		AA58C40A18A3E13300FD5D76 /* play.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = play.jpg; sourceTree = "<group>"; };
+		AAC30B7D18AC41450052C0B7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AAC67FD418A05221008F2527 /* 11-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock@2x.png"; sourceTree = "<group>"; };
 		AAC67FD618A05262008F2527 /* 159-voicemail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "159-voicemail@2x.png"; sourceTree = "<group>"; };
 		AAC67FD818A05329008F2527 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC30B7E18AC41450052C0B7 /* AudioToolbox.framework in Frameworks */,
 				AA239AD41879EFC5005590D4 /* AVFoundation.framework in Frameworks */,
 				AADA01F4186BA9D400996297 /* CoreGraphics.framework in Frameworks */,
 				AADA01F6186BA9D400996297 /* UIKit.framework in Frameworks */,
@@ -279,6 +282,7 @@
 		AADA01F0186BA9D400996297 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAC30B7D18AC41450052C0B7 /* AudioToolbox.framework */,
 				AA239AD31879EFC5005590D4 /* AVFoundation.framework */,
 				AADA01F1186BA9D400996297 /* Foundation.framework */,
 				AADA01F3186BA9D400996297 /* CoreGraphics.framework */,

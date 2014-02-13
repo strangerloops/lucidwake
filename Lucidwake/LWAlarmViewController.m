@@ -119,10 +119,16 @@
     if (hasNotification)
     {
         [[cell statusSwitch] setOn:YES];
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [cell setAlpha:1.0];
+        } completion:nil];
     }
     else
     {
         [[cell statusSwitch] setOn:NO];
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [cell setAlpha:0.5];
+        } completion:nil];
     }
     if (hasSnooze)
     {

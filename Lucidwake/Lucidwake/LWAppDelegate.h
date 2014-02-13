@@ -15,10 +15,10 @@
     NSTimer *silenceTimer;
     NSTimer *alarmTimer;
     BOOL shouldPresentMicrophone;
+    AVAudioPlayer *player;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabControl;
-@property (strong, nonatomic) AVAudioPlayer *player;
 
 @end

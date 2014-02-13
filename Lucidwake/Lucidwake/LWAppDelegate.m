@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 strangerware. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
 #import "LWAppDelegate.h"
 #import "LWAlarmViewController.h"
 #import "LWRecordingsViewController.h"
@@ -16,8 +17,6 @@
 #import "LWRecordingStore.h"
 
 @implementation LWAppDelegate
-
-@synthesize player;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -80,7 +79,6 @@
         UIBackgroundTaskIdentifier bgTask = 0;
         bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
             [app endBackgroundTask:bgTask];
-            [self playSilence];
         }];
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
@@ -89,16 +87,23 @@
         NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
         [player setNumberOfLoops:-1];
-        
-        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:300 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
+        silenceTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(playSilence) userInfo:nil repeats:YES];
         NSDate *rightNow = [NSDate date];
         NSTimeInterval timerInterval = [[[[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0] fireDate] timeIntervalSinceDate:rightNow];
         alarmTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(triggerAlarm) userInfo:nil repeats:NO];
+        [player prepareToPlay];
+        [player play];
+        [player stop];
     }
 }
 
 - (void)playSilence
 {
+    NSLog(@"playSilence method called");
+//    [player stop];
+//    [player setCurrentTime:0];
+//    [player prepareToPlay];
+//    [player play];
     [player prepareToPlay];
     [player play];
     [player stop];
@@ -111,6 +116,7 @@
 
 - (void)playAlarm
 {
+    NSLog(@"playAlarm method called");
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     LWAlarmNotification *alarmNotification = [[[LWTemporallyOrderedNotifications sharedStore] allNotifications] objectAtIndex:0];
     [silenceTimer invalidate];

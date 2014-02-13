@@ -192,6 +192,7 @@
     LWRecording *r = [[[LWRecordingStore sharedStore] allRecordings] objectAtIndex:[indexPath row]];
     LWRecordingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWRecordingCell"];
     [cell setPlayer:[[AVAudioPlayer alloc] initWithContentsOfURL:[r URLlocation] error:Nil]];
+    [[cell player] setDelegate:cell];
     [cell setIndex:[indexPath row]];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM-dd-yy"];
@@ -204,6 +205,7 @@
     int minutes = (ti / 60) % 60;
     int hours = ti / 3600;
     [[cell durationLabel] setText:[NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds]];
+    [[NSNotificationCenter defaultCenter] addObserver:cell selector:@selector(gotNotification) name:@"gotNotification" object:nil];
     return cell;
 }
 

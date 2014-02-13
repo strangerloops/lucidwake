@@ -35,6 +35,7 @@
 {
     if (![_player isPlaying])
     {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"gotNotification" object:nil];
         [_slider setMaximumValue:[_player duration]];
         [_slider setValue:[_player currentTime]];
         [_slider addTarget:self action:@selector(updatePlayer) forControlEvents:UIControlEventValueChanged];
@@ -43,7 +44,6 @@
         {
             _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
         }
-        [_player setDelegate:self];
         [_player play];
         [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
             [audioButton setAlpha:0.0];
@@ -102,6 +102,38 @@
     NSArray *objectToShare = [NSArray arrayWithObject: [_player url]];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:objectToShare applicationActivities:nil];
     [[self viewController] presentViewController:activityController animated:YES completion:nil];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+        [audioButton setAlpha:0.0];
+    } completion:nil];
+    [audioButton setImage:[UIImage imageNamed:@"play.jpg"] forState:UIControlStateNormal];
+    [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+        [audioButton setAlpha:1.0];
+    } completion:nil];
+    [player setCurrentTime:0];
+}
+
+- (void)gotNotification
+{
+    if ([_player isPlaying])
+    {
+        [_player pause];
+        if (_timer)
+        {
+            [_timer invalidate];
+            _timer = nil;
+        }
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:0.0];
+        } completion:nil];
+        [audioButton setImage:[UIImage imageNamed:@"play.jpg"] forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.7 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [audioButton setAlpha:1.0];
+        } completion:nil];
+    }
 }
 
 @end

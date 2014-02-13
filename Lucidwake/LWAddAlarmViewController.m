@@ -55,6 +55,11 @@
     UIColor *clr = [UIColor colorWithRed:.875 green:.88 blue:.91 alpha:1];
     [[self view] setBackgroundColor:clr];
     [_datePicker setBackgroundColor:[UIColor whiteColor]];
+    if (_displayDelete)
+    {
+        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:[alarm hourMinutes]];
+        [_datePicker setDate:date];
+    }
     [_tableView setDataSource:self];
     [_tableView setDelegate:self];
     [_tableView registerClass:[LabelValueCell class] forCellReuseIdentifier:@"LabelValueCell"];
@@ -92,7 +97,11 @@
         }
     }
     NSString *retriggerLabel = [NSString stringWithFormat:@""];
-    if ([alarm retriggers] > 0 && [alarm retriggerInterval] > 0)
+    if ([alarm retriggers] == 1 && [alarm retriggerInterval] > 0)
+    {
+        retriggerLabel = [NSString stringWithFormat:@"1 snoozes, %dm apart", [alarm retriggerInterval]];
+    }
+    else if ([alarm retriggers] > 1 && [alarm retriggerInterval] > 0)
     {
         retriggerLabel = [NSString stringWithFormat:@"%d snoozes, %dm apart", [alarm retriggers], [alarm retriggerInterval]];
     }

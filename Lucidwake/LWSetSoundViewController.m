@@ -38,6 +38,7 @@
 //    if ([[[cell textLabel] text] isEqualToString:[_alarm sound]])
 //    {
 //        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+//        [self setCheckedIndexPath:[tableView indexPathForCell:cell]];
 //    }
     
     return cell;

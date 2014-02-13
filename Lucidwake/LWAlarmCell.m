@@ -22,10 +22,16 @@
     if ([statusSwitch isOn])
     {
         [alarm scheduleNotifications];
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [self setAlpha:1.0];
+        } completion:nil];
     }
     else
     {
         [[LWTemporallyOrderedNotifications sharedStore] unscheduleNotificationsForAlarm:alarm];
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [self setAlpha:0.5];
+        } completion:nil];
     }
 }
 
@@ -77,6 +83,9 @@
     if (!hasNotification)
     {
         [statusSwitch setOn:false animated:true];
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationCurveEaseOut animations:^{
+            [self setAlpha:0.5];
+        } completion:nil];
     }
 }
 

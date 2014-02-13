@@ -94,7 +94,7 @@
             NSDateComponents *weekdayComponents = [cal components:NSWeekdayCalendarUnit fromDate:scheduledDate];
             NSInteger scheduledWeekday = [weekdayComponents weekday];
             NSInteger dayDifference = (i + 1)  - scheduledWeekday;
-            if (dayDifference < 1)
+            if (dayDifference < 0)
             {
                 dayDifference += 7;
             }
@@ -107,6 +107,7 @@
             [an setAlarm:self];
             [[LWTemporallyOrderedNotifications sharedStore] addNotification:an];
             scheduled = true;
+            NSLog(@"%@", [an fireDate]);
         }
     }
     if (!scheduled)
